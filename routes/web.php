@@ -17,6 +17,8 @@ use App\Programm;
 use App\Country;
 use \App\Courses_program;
 use \App\Courses_program_country;
+use Illuminate\Http\Request;
+
 
 Route::get('/', function () {
     $programs = Programm::all();
@@ -63,14 +65,28 @@ Route::get('/coursesdetail', function () {
 
 Route::get('/support','SupportController@index');
 Route::post('/support/send','SupportController@sendMessage')->name('sendMessage');
+Route::get('/logout/',function (){
+    Session::forget('username');
+    return redirect()->route('admin-page');
+
+})->name('logout');
 
 // Admin
 Route::get('admin-dreamland/',  function () {
 
     return view('admin.admin');
+})->name('admin-page');
+
+Route::post('admin-dreamland/login/',  function (Request $request) {
+    $login = $request->input('login');
+    $pas = $request->input('pass');
+    if ($login == "Sultan" and $pas == '1234'){
+        Session::put('username', $login);
+
+        return redirect()->route('pageAddProgramms');
+    }
+    return redirect()->back()->with('error', 'логин или пароль неправильный');
 })->name('admin');
-
-
 
 Route::post('/add-programmss/','AdminController@addProgramms')->name('addProgramms');
 Route::post('/delete/','AdminController@delete')->name('addProgramms');

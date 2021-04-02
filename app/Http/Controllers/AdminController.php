@@ -9,15 +9,24 @@ use App\Courses_program;
 use App\Courses_program_country;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-
+//use Symfony\Component\HttpFoundation\Session\Session;
+use Session;
 class AdminController extends Controller
 {
     public function __construct()
     {
         // $this->middleware('auth');
     }
+    public static  function  check(){
+        if (!Session::has('useasdrname')){
+            return redirect()->route('admin-page');
+        }
+    }
     public function index()
     {
+        if (!Session::has('username')){
+            return redirect()->route('admin-page');
+        }
         $programs = Programm::all();
         return view('admin.programms', compact('programs'));
     }
@@ -26,6 +35,7 @@ class AdminController extends Controller
 
 
     public function addProgramms(Request $request){
+
         $name = $request->input('name');
         $color = $request->input('color');
         $description = $request->input('description');
@@ -51,6 +61,9 @@ class AdminController extends Controller
 
     public function indexCountries()
     {
+        if (!Session::has('username')){
+            return redirect()->route('admin-page');
+        }
         $countries = Country::all();
         return view('admin.country', compact('countries'));
     }
@@ -83,6 +96,9 @@ class AdminController extends Controller
 
 
     public function indexCourses(Request $request){
+        if (!Session::has('username')){
+            return redirect()->route('admin-page');
+        }
         $courses = Courses::all();
         return view('admin.courses', compact('courses'));
     }
@@ -113,6 +129,9 @@ class AdminController extends Controller
 
 
     public function indexCoursesProgram(Request $request){
+        if (!Session::has('username')){
+            return redirect()->route('admin-page');
+        }
         $programs = Programm::all();
         $countries = Country::all();
         $courses_programs = Courses_program::all();
@@ -149,6 +168,9 @@ class AdminController extends Controller
 
 
     public function indexCP(Request $request){
+        if (!Session::has('username')){
+            return redirect()->route('admin-page');
+        }
         $courses = Courses::all();
         $cpc = Courses_program_country::all();
         $courses_programs = Courses_program::all();

@@ -45,6 +45,8 @@
                 <a href="/add-country/" class="btn btn-secondary" >Страны</a>
                 <a href="/add-courses-programm/" class="btn btn-secondary">Программы по странам</a>
                 <a href="/add-courses-cp/" class="btn btn-secondary" >Курсы по странам и программам</a>
+                <a href="/logout/" class="btn btn-secondary" >Logout</a>
+
             </div>
         </div>
     </div>
