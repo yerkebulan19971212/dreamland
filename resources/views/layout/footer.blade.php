@@ -46,17 +46,28 @@
 {{--                        <div style="color:#d9d9d9;" data-customstyle="yes"><span style="font-weight: 300;">© All rights reserved</span></div>--}}
 {{--                    </div>--}}
                 </div>
-                <div class="t420__col t-col t-col_3">
-                    <div class="t420__title t-name t-name_xs t420__title_uppercase" field="title" style="color: #ffffff;">Программы по видам</div>
+                <div class="t420__col t-col t-col_2">
+                    <div class="t420__title t-name t-name_xs t420__title_uppercase" field="title" style="color: #ffffff;">Наши программы</div>
                     <div class="t420__descr t-descr t-descr_xxs" field="descr" style="color: #ebebeb;color:#ebebeb;">
                         <ul>
-                            <li><a href="http://infostudy.international/" style="">Образование за рубежом</a></li>
-                            <li><a href="http://infostudy-usa.com/" style="">Образование в США</a></li>
-                            <li><a href="http://infostudy-canada.com/" style="">Образование в Канаде</a></li>
-                            <li><a href="http://infostudy-uk.com/" style="">Образование в Великобритании</a></li>
+                            @foreach($programs as $p)
+                                <li><a href="{{ route('categories', ['id' => $p->id]) }}">{{$p->name}} </a></li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
+                <div class="t420__col t-col t-col_2">
+                    <div class="t420__title t-name t-name_xs t420__title_uppercase" field="title" style="color: #ffffff;">Страны</div>
+                    <div class="t420__descr t-descr t-descr_xxs" field="descr" style="color: #ebebeb;color:#ebebeb;">
+                        <ul>
+                            @foreach($countries as $p)
+                                <li><a href="{{ route('bachelors', ['id' => $p->id]) }}">{{$p->name}} </a></li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+
+
                 <div class="t420__floatbeaker_lr3"></div>
                 <div>
                     <div class="t420__col t-col t-col_3">

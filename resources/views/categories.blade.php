@@ -55,16 +55,6 @@
     box-shadow: 0 2px 8px 0 rgb(25 25 25 / 16%);">{{$name->program->name}}</h2>
                                     </div>
                                 </div>
-{{--                                <div class="cefcom-container " style="padding-top:65px;">--}}
-{{--                                    <div class="cefcom-row program-cards__header-row">--}}
-{{--                                        <div class="cefcom-col -sm-12 -m-12 program-cards__header-col">--}}
-{{--                                            <div class="program-cards__header">--}}
-{{--                                                <p class="program-cards__header-label">Программы&nbsp;для</p>--}}
-{{--                                                <h2 class="program-cards__header-title">Языковые курсы</h2>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
                                 <div class="section-wrapper">
                                     <div class="cefcom-container ">
                                         <div class="cefcom-row ">
@@ -94,7 +84,7 @@
                                                             {{$c->description}}
                                                         </span>
                                                         <div class="ef-program-card-horizontal__btns" data-clicksubregion="pg-card-ctas-undefined">
-                                                            <a data-tracking="pg-learn-more-btn-undefined" href="" class="ef-program-card-horizontal__btns-btn -solid" target="_self" rel="">
+                                                            <a data-tracking="pg-learn-more-btn-undefined" href="{{route('courses', ['progid' => $c->program->id, 'conid'=>$c->country->id])}}" class="ef-program-card-horizontal__btns-btn -solid" target="_self" rel="">
                                                                 <span>Узнать подробнее</span></a>
                                                         </div>
                                                     </div>

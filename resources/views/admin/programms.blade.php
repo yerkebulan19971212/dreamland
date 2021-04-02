@@ -23,7 +23,26 @@
 <body>
 <br>
 <br>
-<div class="container">
+<style>
+    .btn{
+        text-align: left!important;
+    }
+</style>
+<div class="row">
+    <div class="col-md-3">
+        <div class="container">
+            <div class="btn-group-vertical" style="width: 100%; ">
+                <a href="/add-courses/" class="btn btn-secondary" >Курсы</a>
+                <a href="/add-programms/" class="btn btn-secondary">Программы</a>
+                <a href="/add-country/" class="btn btn-secondary" >Страны</a>
+                <a href="/add-courses-programm/" class="btn btn-secondary">Программы по странам</a>
+                <a href="/add-courses-cp/" class="btn btn-secondary" >Курсы по странам и программам</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <div class="container">
+            <h2>Программы</h2>
     <form method="POST" action="{{action('AdminController@addProgramms') }}" enctype="multipart/form-data">
         {{csrf_field()}}
 
@@ -45,7 +64,6 @@
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-</div>
 <table>
     <tr>
         <th>Name</th>
@@ -71,5 +89,6 @@
     </tr>
 @endforeach
 </table>
+        </div></div>
 </body>
 </html>

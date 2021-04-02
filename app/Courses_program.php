@@ -2,6 +2,7 @@
 
 namespace App;
 use App\Country;
+use App\Courses_program_country;
 use App\Programm;
 
 
@@ -20,5 +21,9 @@ class Courses_program extends Model
     public function program()
     {
         return $this->belongsTo(Programm::class, 'program_id');
+    }
+    public function courses_program_country()
+    {
+        return $this->hasMany(Courses_program_country::class);
     }
 }

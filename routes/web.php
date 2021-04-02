@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 use App\Programm;
 use App\Country;
 use \App\Courses_program;
+use \App\Courses_program_country;
+
 Route::get('/', function () {
     $programs = Programm::all();
     $countries = Country::all();
@@ -24,23 +26,35 @@ Route::get('/', function () {
 Route::get('/categories/{id}', function ($id) {
     $course_p = Courses_program::where('program_id', '=', $id)->get();
     $name = $course_p->first();
-    return view('categories', compact('course_p', 'name'));
+    $programs = Programm::all();
+    $countries = Country::all();
+    return view('categories', compact('course_p', 'name', 'programs', 'countries'));
 })->name('categories');
 
 Route::get('/bachelor/{id}', function ($id) {
     $course_p = Courses_program::where('country_id', '=', $id)->get();
     $name = $course_p->first();
-
-    return view('countries', compact('course_p', 'name'));
+    $programs = Programm::all();
+    $countries = Country::all();
+    return view('countries', compact('course_p', 'name', 'programs', 'countries'));
 })->name('bachelors');
-Route::get('/courses', function () {
-    return view('courses');
-});
-Route::get('/courses2', function () {
-    return view('course2');
-});
+
+
+//Route::get('/courses', function () {
+//    return view('courses');
+//});
+Route::get('/courses2/{progid}/{conid}', function ($progid, $conid) {
+    $programs = Programm::all();
+    $countries = Country::all();
+    $cp = Courses_program::where('country_id', '=', $conid)->where('program_id', '=', $progid)->get()->first();
+    $cpc = Courses_program_country::where('cp', '=', $cp->id)->get();
+    return view('course2', compact('programs', 'countries', 'cpc', 'cp'));
+})->name('courses');
+
 Route::get('/coursesdetail', function () {
-    return view('course_detail');
+    $programs = Programm::all();
+    $countries = Country::all();
+    return view('course_detail', compact('programs', 'countries'));
 });
 
 
@@ -51,6 +65,13 @@ Route::get('/support','SupportController@index');
 Route::post('/support/send','SupportController@sendMessage')->name('sendMessage');
 
 // Admin
+Route::get('admin-dreamland/',  function () {
+
+    return view('admin.admin');
+})->name('admin');
+
+
+
 Route::post('/add-programmss/','AdminController@addProgramms')->name('addProgramms');
 Route::post('/delete/','AdminController@delete')->name('addProgramms');
 Route::get('add-programms/', 'AdminController@index')->name('pageAddProgramms');
@@ -70,6 +91,10 @@ Route::get('add-courses-programm/', 'AdminController@indexCoursesProgram')->name
 Route::post('add-courses-program/', 'AdminController@addCoursesP')->name('addCoursesP');
 Route::post('delete-courses-program/', 'AdminController@deleteCoursesP')->name('deleteCoursesP');
 
+
+Route::get('add-courses-cp/', 'AdminController@indexCP')->name('indexCP');
+Route::post('add-courses-cp/', 'AdminController@addCP')->name('addCP');
+Route::post('delete-cp/', 'AdminController@deleteCP')->name('deleteCP');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

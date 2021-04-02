@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-//use App\Country;
+use App\Courses_program_country;
 
 
 use Illuminate\Database\Eloquent\Model;
@@ -10,8 +10,8 @@ class Courses extends Model
 {
     protected $table = 'courses';
 
-    public function comments()
+    public function courses_program_country()
     {
-        return $this->hasMany(Comment::class);
+        return $this->hasMany(Courses_program_country::class);
     }
 }

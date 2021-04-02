@@ -94,7 +94,7 @@
                                                             {{$c->description}}
                                                         </span>
                                                         <div class="ef-program-card-horizontal__btns" data-clicksubregion="pg-card-ctas-undefined">
-                                                            <a data-tracking="pg-learn-more-btn-undefined" href="https://www.ef.kz/aya/" class="ef-program-card-horizontal__btns-btn -solid" target="_self" rel="">
+                                                            <a data-tracking="pg-learn-more-btn-undefined" href="{{route('courses', ['progid' => $c->program->id, 'conid'=>$c->country->id])}}" class="ef-program-card-horizontal__btns-btn -solid" target="_self" rel="">
                                                                 <span>Узнать подробнее</span></a>
                                                         </div>
                                                     </div>

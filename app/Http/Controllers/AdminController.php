@@ -123,18 +123,56 @@ class AdminController extends Controller
         $country = $request->input('country');
         $programm = $request->input('programm');
         $description = $request->input('description');
+        $cp = Courses_program::where('country_id', '=', $country)->where('program_id', '=', $programm)->get();
 
-        DB::table('courses_programs')->insert([
-            'country_id' => $country,
-            'program_id' => $programm,
-            'description' => $description,
-        ]);
-        return redirect()->back();
+        if(count($cp) == 0){
+            DB::table('courses_programs')->insert([
+                'country_id' => $country,
+                'program_id' => $programm,
+                'description' => $description,
+            ]);
+            return redirect()->back();
+        }
+        return redirect()->back()->with('error', 'Такой запись уже есть');
     }
 
     public function deleteCoursesP(Request $request ){
         $id = $request->input('id');
         $p = Courses_program::find($id);
+        $p->delete();
+        return redirect()->back();
+
+    }
+
+
+
+
+
+    public function indexCP(Request $request){
+        $courses = Courses::all();
+        $cpc = Courses_program_country::all();
+        $courses_programs = Courses_program::all();
+        return view('admin.CP', compact('courses', 'cpc', 'courses_programs'));
+    }
+
+    public function addCP(Request $request){
+        $course = $request->input('course');
+        $course_program = $request->input('course_program');
+        $cpc = Courses_program_country::where('courses_id', '=',$course )->where('cp','=',$course_program)->get();
+        if (count($cpc) == 0){
+        DB::table('courses_program_countries')->insert([
+            'courses_id' => $course,
+            'cp' => $course_program,
+            'description' => null,
+        ]);
+            return redirect()->back();
+        }
+        return redirect()->back()->with('error', 'Такой запись уже есть');
+    }
+
+    public function deleteCP(Request $request ){
+        $id = $request->input('id');
+        $p = Courses_program_country::find($id);
         $p->delete();
         return redirect()->back();
 
