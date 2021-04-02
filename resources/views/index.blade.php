@@ -553,7 +553,7 @@
                 <div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div>
             </div>
             <div class="language">
-                <h2 class="age-categories__title">Выбрать программы по видам</h2>
+                <h2 class="age-categories__title">Наши партнеры</h2>
 
             <div class="container">
                     <div class="row">
@@ -567,15 +567,46 @@
                                     <!-- Flag -->
                                     <div class="owl-item language_item">
                                         <a href="#">
-                                            <div class="flag"><img src="{{asset('images/Ukrainian.svg')}}" alt=""></div>
-                                            <div class="lang_name">Ukrainian</div>
+                                            <div class="flag"><img src="{{asset('img/icon/ARIZONA.png')}}" alt=""></div>
+{{--                                            <div class="lang_name">Ukrainian</div>--}}
                                         </a>
                                     </div>
 
                                     <!-- Flag -->
                                     <div class="owl-item language_item">
                                         <a href="#">
-                                            <div class="flag"><img src="{{asset('images/Japanese.svg')}}" alt=""></div>
+                                            <div class="flag"><img src="{{asset('img/icon/ascvut.png')}}" alt=""></div>
+{{--                                            <div class="lang_name">Japanese</div>--}}
+                                        </a>
+                                    </div>
+
+                                    <!-- Flag -->
+                                    <div class="owl-item language_item">
+                                        <a href="#">
+                                            <div class="flag"><img src="{{asset('img/icon/cvut.png')}}" alt=""></div>
+{{--                                            <div class="lang_name">Lithuanian</div>--}}
+                                        </a>
+                                    </div>
+
+                                    <!-- Flag -->
+                                    <div class="owl-item language_item">
+                                        <a href="#">
+                                            <div class="flag"><img src="{{asset('img/icon/czu.jpg')}}" alt=""></div>
+{{--                                            <div class="lang_name">Swedish</div>--}}
+                                        </a>
+                                    </div>
+                                    <!-- Flag -->
+                                    <div class="owl-item language_item">
+                                        <a href="#">
+                                            <div class="flag"><img src="{{asset('img/icon/hebei.jpg')}}" alt=""></div>
+{{--                                            <div class="lang_name">Ukrainian</div>--}}
+                                        </a>
+                                    </div>
+
+                                    <!-- Flag -->
+                                    <div class="owl-item language_item">
+                                        <a href="#">
+                                            <div class="flag"><img src="{{asset('img/icon/mup.jpg')}}" alt=""></div>
                                             <div class="lang_name">Japanese</div>
                                         </a>
                                     </div>
@@ -583,57 +614,26 @@
                                     <!-- Flag -->
                                     <div class="owl-item language_item">
                                         <a href="#">
-                                            <div class="flag"><img src="{{asset('images/Lithuanian.svg')}}" alt=""></div>
-                                            <div class="lang_name">Lithuanian</div>
+                                            <div class="flag"><img src="{{asset('img/icon/vse.png')}}" alt=""></div>
+{{--                                            <div class="lang_name">Japanese</div>--}}
                                         </a>
                                     </div>
 
-                                    <!-- Flag -->
-                                    <div class="owl-item language_item">
-                                        <a href="#">
-                                            <div class="flag"><img src="{{asset('images/Swedish.svg')}}" alt=""></div>
-                                            <div class="lang_name">Swedish</div>
-                                        </a>
-                                    </div>
-                                    <!-- Flag -->
-                                    <div class="owl-item language_item">
-                                        <a href="#">
-                                            <div class="flag"><img src="{{asset('images/Ukrainian.svg')}}" alt=""></div>
-                                            <div class="lang_name">Ukrainian</div>
-                                        </a>
-                                    </div>
+{{--                                    <!-- Flag -->--}}
+{{--                                    <div class="owl-item language_item">--}}
+{{--                                        <a href="#">--}}
+{{--                                            <div class="flag"><img src="{{asset('images/Japanese.svg')}}" alt=""></div>--}}
+{{--                                            <div class="lang_name">Japanese</div>--}}
+{{--                                        </a>--}}
+{{--                                    </div>--}}
 
-                                    <!-- Flag -->
-                                    <div class="owl-item language_item">
-                                        <a href="#">
-                                            <div class="flag"><img src="{{asset('images/Japanese.svg')}}" alt=""></div>
-                                            <div class="lang_name">Japanese</div>
-                                        </a>
-                                    </div>
-
-                                    <!-- Flag -->
-                                    <div class="owl-item language_item">
-                                        <a href="#">
-                                            <div class="flag"><img src="{{asset('images/Japanese.svg')}}" alt=""></div>
-                                            <div class="lang_name">Japanese</div>
-                                        </a>
-                                    </div>
-
-                                    <!-- Flag -->
-                                    <div class="owl-item language_item">
-                                        <a href="#">
-                                            <div class="flag"><img src="{{asset('images/Japanese.svg')}}" alt=""></div>
-                                            <div class="lang_name">Japanese</div>
-                                        </a>
-                                    </div>
-
-                                    <!-- Flag -->
-                                    <div class="owl-item language_item">
-                                        <a href="#">
-                                            <div class="flag"><img src="{{asset('images/Japanese.svg')}}" alt=""></div>
-                                            <div class="lang_name">Japanese</div>
-                                        </a>
-                                    </div>
+{{--                                    <!-- Flag -->--}}
+{{--                                    <div class="owl-item language_item">--}}
+{{--                                        <a href="#">--}}
+{{--                                            <div class="flag"><img src="{{asset('images/Japanese.svg')}}" alt=""></div>--}}
+{{--                                            <div class="lang_name">Japanese</div>--}}
+{{--                                        </a>--}}
+{{--                                    </div>--}}
 
 
                                 </div>
