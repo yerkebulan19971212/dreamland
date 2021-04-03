@@ -23,13 +23,7 @@
 <body>
 <br>
 <br>
-@if (\Session::has('error'))
-    <div class="alert alert-error" style="background: #dc3545bd">
-        <ul>
-            <li>{!! \Session::get('error') !!}</li>
-        </ul>
-    </div>
-@endif
+
 <style>
     .btn{
         text-align: left!important;
@@ -51,6 +45,14 @@
     </div>
     <div class="col-md-9">
         <div class="container">
+            @if (\Session::has('error'))
+                <div class="alert alert-error" style="background: #dc3545bd">
+                    <ul>
+                        <li>{!! \Session::get('error') !!}</li>
+                    </ul>
+                </div>
+            @endif
+                <br>
             <h2>Курсы по странам и программам</h2>
     <form method="POST" action="{{action('AdminController@addCP') }}" enctype="multipart/form-data">
         {{csrf_field()}}

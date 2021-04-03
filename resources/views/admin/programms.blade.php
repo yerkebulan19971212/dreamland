@@ -27,16 +27,23 @@
     .btn{
         text-align: left!important;
     }
+    .btn-secondary{
+    }
 </style>
 <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-3" style="">
         <div class="container">
             <div class="btn-group-vertical" style="width: 100%; ">
                 <a href="/add-courses/" class="btn btn-secondary" >Курсы</a>
+
                 <a href="/add-programms/" class="btn btn-secondary">Программы</a>
+
                 <a href="/add-country/" class="btn btn-secondary" >Страны</a>
+
                 <a href="/add-courses-programm/" class="btn btn-secondary">Программы по странам</a>
+
                 <a href="/add-courses-cp/" class="btn btn-secondary" >Курсы по странам и программам</a>
+
                 <a href="/logout/" class="btn btn-secondary" >Logout</a>
 
             </div>

@@ -22,13 +22,7 @@
 </head>
 <body>
 
-@if (\Session::has('error'))
-    <div class="alert alert-error" style="background: #dc3545bd">
-        <ul>
-            <li>{!! \Session::get('error') !!}</li>
-        </ul>
-    </div>
-@endif
+
 <br>
 <br>
 <style>
@@ -52,6 +46,14 @@
     </div>
     <div class="col-md-9">
         <div class="container">
+            @if (\Session::has('error'))
+                <div class="alert alert-error" style="background: #dc3545bd">
+                    <ul>
+                        <li>{!! \Session::get('error') !!}</li>
+                    </ul>
+                </div>
+            @endif
+                <br>
             <h2>
                 Программы по странам
             </h2>

@@ -26,7 +26,7 @@
 <div class="section section--nobot">
     <div class="container">
         <div class="static-info сountry-info">
-            <p style="text-align: justify;">{{$cp->description}}</p>
+            {{$cp->description}}
             <h2>Университеты {{$cp->country->name}}</h2>
         </div>
     </div>
