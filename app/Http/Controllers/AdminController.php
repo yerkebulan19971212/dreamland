@@ -142,17 +142,17 @@ class AdminController extends Controller
         $country = $request->input('country');
         $programm = $request->input('programm');
         $description = $request->input('description');
+        echo $description;
         $cp = Courses_program::where('country_id', '=', $country)->where('program_id', '=', $programm)->get();
-
-        if(count($cp) == 0){
-            DB::table('courses_programs')->insert([
-                'country_id' => $country,
-                'program_id' => $programm,
-                'description' => $description,
-            ]);
-            return redirect()->back();
-        }
-        return redirect()->back()->with('error', 'Такой запись уже есть');
+//        if(count($cp) == 0){
+//            DB::table('courses_programs')->insert([
+//                'country_id' => $country,
+//                'program_id' => $programm,
+//                'description' => $description,
+//            ]);
+//            return redirect()->back();
+//        }
+        return redirect()->back()->with('error', $description);
     }
 
     public function deleteCoursesP(Request $request ){

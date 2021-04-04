@@ -90,27 +90,27 @@
         </div>
         <div class="row">
             <div class="col-lg-4 col-md-6 col-sm-12 workdiv">
-                <img src="{{asset('img/icon/hebei.jpg')}}" class="workimg" alt="">
+                <img src="{{asset('img/steps/1.svg')}}" class="workimg" alt="">
                 <p class="workp">Бесплатная консультация </p>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12 workdiv">
-                <img src="{{asset('img/icon/hebei.jpg')}}" class="workimg" alt="">
+                <img src="{{asset('img/steps/2.svg')}}" class="workimg" alt="">
                 <p class="workp">Заключение договора</p>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12 workdiv">
-                <img src="{{asset('img/icon/hebei.jpg')}}" class="workimg" alt="">
+                <img src="{{asset('img/steps/3.svg')}}" class="workimg" alt="">
                 <p class="workp">Поступление в университет</p>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12 workdiv">
-                <img src="{{asset('img/icon/hebei.jpg')}}" class="workimg" alt="">
+                <img src="{{asset('img/steps/4.svg')}}" class="workimg" alt="">
                 <p class="workp">Оплата SEVIS</p>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12 workdiv">
-                <img src="{{asset('img/icon/hebei.jpg')}}" class="workimg" alt="">
+                <img src="{{asset('img/steps/5.svg')}}" class="workimg" alt="">
                 <p class="workp">Подготовка кейса</p>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12 workdiv">
-                <img src="{{asset('img/icon/hebei.jpg')}}" class="workimg" alt="">
+                <img src="{{asset('img/steps/6.svg')}}" class="workimg" alt="">
                 <p class="workp">Получение визы</p>
             </div>
         </div>
@@ -149,7 +149,7 @@
         color: #000;
     }
     .workimg{
-        width: 31px;
+        width: 65px;
         margin-bottom: 0.8rem;
     }
     .workp{

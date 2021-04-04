@@ -107,7 +107,6 @@ Route::post('add-courses/', 'AdminController@addCourses')->name('addCourses');
 Route::post('delete-courses/', 'AdminController@deleteCourses')->name('deleteCourses');
 
 
-
 Route::get('add-courses-programm/', 'AdminController@indexCoursesProgram')->name('indexCourses');
 Route::post('add-courses-program/', 'AdminController@addCoursesP')->name('addCoursesP');
 Route::post('delete-courses-program/', 'AdminController@deleteCoursesP')->name('deleteCoursesP');
