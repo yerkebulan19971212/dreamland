@@ -59,7 +59,7 @@
         line-height: 1.3;
      }
 </style>
-<div class="wy">
+<div id="why" class="wy">
     <div class="why-choose" style="margin-top: 100px; margin-bottom: 100px;">
         <div class="container">
             <div class="why-choose-ineer">
@@ -167,6 +167,9 @@
     }
 </style>
 <script>
+
+
+
     var sp1 = 0;
     var sp2 = 0;
     var sp3 = 0;
@@ -203,9 +206,21 @@
         }
     }
     document.addEventListener('DOMContentLoaded', function(){
-        console.log("asd")
-        intervalId = setInterval(varName, 10);
-        intervalId2 =setInterval(varName2, 1);
-        intervalId3 = setInterval(varName3, 3);
+        $(window).scroll(function(){
+            w = Math.floor( $(window).scrollTop() );
+            if(w>=($('#why').offset().top - screen.height)){
+                intervalId = setInterval(varName, 30);
+                intervalId2 =setInterval(varName2, 10);
+                intervalId3 = setInterval(varName3, 30);
+
+            }
+        })
+        w = Math.floor( $(window).scrollTop() );
+        if(w>=($('#why').offset().top - screen.height)){
+            intervalId = setInterval(varName, 30);
+            intervalId2 =setInterval(varName2, 20);
+            intervalId3 = setInterval(varName3, 30);
+
+        }
     });
 </script>

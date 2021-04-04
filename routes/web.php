@@ -58,6 +58,11 @@ Route::get('/coursesdetail', function () {
     $countries = Country::all();
     return view('course_detail', compact('programs', 'countries'));
 });
+Route::get('/asd', function () {
+    $programs = Programm::all();
+    $countries = Country::all();
+    return view('course_detail_page', compact('programs', 'countries'));
+});
 
 
 
