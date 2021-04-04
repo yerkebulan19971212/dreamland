@@ -52,7 +52,7 @@
     background: #fff;
     padding: 10px;
     border-radius: 11px;
-    box-shadow: 0 2px 8px 0 rgb(25 25 25 / 16%);">{{$name->program->name}}</h2>
+    box-shadow: 0 2px 8px 0 rgb(25 25 25 / 16%);">{!! $name->program->name !!}</h2>
                                     </div>
                                 </div>
                                 <div class="section-wrapper">
@@ -72,7 +72,7 @@
                                                     </div>
                                                     <div class="ef-program-card-horizontal__content">
                                                         <span class="ef-program-card-horizontal__title">
-                                                            <h2>{{$c->country->name}}</h2>
+                                                            <h2>{!! $c->country->name !!}</h2>
                                                         </span>
                                                         <div class="ef-program-card-horizontal__diff">
                                                             <div class="ef-program-card-horizontal__diff-item">
@@ -81,7 +81,7 @@
                                                                 </div>
                                                             </div>
                                                         </div><span class="ef-program-card-horizontal__descr">
-                                                            {{$c->description}}
+                                                            {!! $c->description !!}
                                                         </span>
                                                         <div class="ef-program-card-horizontal__btns" data-clicksubregion="pg-card-ctas-undefined">
                                                             <a data-tracking="pg-learn-more-btn-undefined" href="{{route('courses', ['progid' => $c->program->id, 'conid'=>$c->country->id])}}" class="ef-program-card-horizontal__btns-btn -solid" target="_self" rel="">
@@ -103,6 +103,8 @@
         </div>
     </main>
 </div>
+<script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 
 </html>

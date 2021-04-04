@@ -20,7 +20,9 @@ class CreateCoursesProgramsTable extends Migration
             $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
             $table->unsignedBigInteger('program_id')->unsigned();
             $table->foreign('program_id')->references('id')->on('programms')->onDelete('cascade');
-            $table->string('description');
+            $table->longText('description');
+            $table->longText('full_description');
+            $table->integer('price');
             $table->timestamps();
         });
     }

@@ -1,5 +1,5 @@
 <div id="t-footer" class="t-records" data-hook="blocks-collection-content-node" data-tilda-project-id="836547" data-tilda-page-id="10326324" data-tilda-page-alias="footer" data-tilda-formskey="e3d431961994d6b746f1ef5adaba23b5" data-tilda-lazy="yes">
-    <div id="rec176355497" class="r t-rec t-rec_pt_45 t-rec_pb_45" style="padding-top:45px;padding-bottom:45px;background-color:#002f4d; " data-record-type="420" data-bg-color="#002f4d">
+    <div id="rec176355497" class="r t-rec t-rec_pt_45 t-rec_pb_45" style="padding-top:45px;padding-bottom:45px;background-color:#191919cc; " data-record-type="420" data-bg-color="#002f4d">
         <div class="t420">
             <div class="t-container t-align_left">
                 <div class="t420__col t-col t-col_3">

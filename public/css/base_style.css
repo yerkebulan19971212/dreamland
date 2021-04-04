@@ -1,5 +1,7 @@
 /*<style data-href="/assetscdn/WIBIwq6RdJvcD9bc8RMd/cefcom-funneling-site/styles.f4b3caa1506a28cd4791.css" id="gatsby-global-css">*/
-
+.freeconsulting{
+    display: none!important;
+}
 .btn_header{
     font-size: 23px !important;
     text-align: center;

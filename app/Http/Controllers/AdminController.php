@@ -13,6 +13,17 @@ use Illuminate\Http\Request;
 use Session;
 class AdminController extends Controller
 {
+
+    public function login (Request $request) {
+        $login = $request->input('login');
+        $pas = $request->input('pass');
+        if ($login == "Sultan" and $pas == '1234'){
+            Session::put('username', $login);
+
+            return redirect()->route('pageAddProgramms');
+        }
+        return redirect()->back()->with('error', 'логин или пароль неправильный');
+    }
     public function __construct()
     {
         // $this->middleware('auth');
@@ -37,8 +48,10 @@ class AdminController extends Controller
     public function addProgramms(Request $request){
 
         $name = $request->input('name');
-        $color = $request->input('color');
-        $description = $request->input('description');
+        $color = ' ';
+        $description = " ";
+        $order = $request->input('order');
+
         if ($files = $request->file('image')) {
             $destinationPath = public_path('/images/'); // upload path
             $profileImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
@@ -48,6 +61,7 @@ class AdminController extends Controller
             'image' => 'images/'.$profileImage,
             'description' => $description,
             'color' => $color,
+            'order' => $order,
         ]);
         return redirect()->back();
     }
@@ -64,14 +78,15 @@ class AdminController extends Controller
         if (!Session::has('username')){
             return redirect()->route('admin-page');
         }
-        $countries = Country::all();
+        $countries = Country::orderBy('order', 'asc')->get();
         return view('admin.country', compact('countries'));
     }
 
     public function addCountries(Request $request){
         $name = $request->input('name');
-        $color = $request->input('color');
-        $description = $request->input('description');
+        $color = ' ';
+        $description = ' ';
+        $order = $request->input('order');
         if ($files = $request->file('image')) {
             $destinationPath = public_path('/images/'); // upload path
             $profileImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
@@ -81,6 +96,7 @@ class AdminController extends Controller
             'image' => 'images/'.$profileImage,
             'description' => $description,
             'color' => $color,
+            'order' => $order,
         ]);
         return redirect()->back();
     }
@@ -141,18 +157,22 @@ class AdminController extends Controller
     public function addCoursesP(Request $request){
         $country = $request->input('country');
         $programm = $request->input('programm');
+        $price = $request->input('price');
         $description = $request->input('description');
-        echo $description;
+        $fulldescription = $request->input('fulldescription');
+
         $cp = Courses_program::where('country_id', '=', $country)->where('program_id', '=', $programm)->get();
-//        if(count($cp) == 0){
-//            DB::table('courses_programs')->insert([
-//                'country_id' => $country,
-//                'program_id' => $programm,
-//                'description' => $description,
-//            ]);
-//            return redirect()->back();
-//        }
-        return redirect()->back()->with('error', $description);
+        if(count($cp) == 0){
+            DB::table('courses_programs')->insert([
+                'country_id' => $country,
+                'program_id' => $programm,
+                'description' => $description,
+                'full_description' => $fulldescription,
+                'price' => $price
+            ]);
+            return redirect()->back();
+        }
+        return redirect()->back()->with('error', 'Такой запись уже есть');
     }
 
     public function deleteCoursesP(Request $request ){

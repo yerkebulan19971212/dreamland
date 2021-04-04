@@ -9,16 +9,12 @@
     <title>Dreamland</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <link rel="stylesheet" href="https://ws.tildacdn.com/project836547/tilda-blocks-2.12.css?t=1616509495" type="text/css" media="all" />
     <link data-react-helmet="true" rel="icon" type="image/png" href="https://www.ef.kz/assetscdn/WIBIwq6RdJvcD9bc8RMd/central-media/common/favicon-48.ico">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    {{--    <link rel="stylesheet" href="{{asset('boot')}}">--}}
     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
-
     <link href="{{asset('css/font-awesome-4.7.0/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="{{asset('css/owl.carousel.css')}}">
-
     <style>
         img:not([src]){
             visibility: visible!important;
@@ -45,6 +41,7 @@
                         </div>
                         <div style="display: block;">
                             <section id="omnidiv-program-cards" class="ef-section rendering__program-cards">
+                              @if(!is_null($name))
                                 <div class="header_img" style="background-image:url({{asset($name->country->image)}}); position: relative">
                                     <div style="position: absolute;bottom: -31px;width: 100%;text-align: center;">
                                     <h2 class="program-cards__header-title" style="width: 350px;
@@ -52,19 +49,13 @@
     background: #fff;
     padding: 10px;
     border-radius: 11px;
-    box-shadow: 0 2px 8px 0 rgb(25 25 25 / 16%);">{{$name->country->name}}</h2>
+    box-shadow: 0 2px 8px 0 rgb(25 25 25 / 16%);">
+                                        {!! $name->country->name !!}</h2>
                                     </div>
                                 </div>
-{{--                                <div class="cefcom-container " style="padding-top: 65px">--}}
-{{--                                    <div class="cefcom-row program-cards__header-row">--}}
-{{--                                        <div class="cefcom-col -sm-12 -m-12 program-cards__header-col">--}}
-{{--                                            <div class="program-cards__header">--}}
-{{--                                                --}}{{----}}{{--                                                <p class="program-cards__header-label">Программы&nbsp;для</p>--}}
-{{--                                                <h2 class="program-cards__header-title">Канада</h2>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
+                                  @else
+                                  {{''}}
+                                @endif
                                 <div class="section-wrapper">
                                     <div class="cefcom-container ">
                                         <div class="cefcom-row ">
@@ -82,7 +73,7 @@
                                                     </div>
                                                     <div class="ef-program-card-horizontal__content">
                                                         <span class="ef-program-card-horizontal__title">
-                                                            <h2>{{$c->program->name}}</h2>
+                                                            <h2>{!! $c->program->name !!}</h2>
                                                         </span>
                                                         <div class="ef-program-card-horizontal__diff">
                                                             <div class="ef-program-card-horizontal__diff-item">
@@ -90,7 +81,7 @@
                                                                     <span class="ef-icon gh-icon-calendar"></span><span>6+ <span>месяцев</span></span>
                                                                 </div>
                                                             </div>
-                                                        </div><span class="ef-program-card-horizontal__descr">
+                                                        </div><span class="ef-program-card-horizontal__descr" style="display: block">
                                                             {!! $c->description  !!}
                                                         </span>
                                                         <div class="ef-program-card-horizontal__btns" data-clicksubregion="pg-card-ctas-undefined">
@@ -115,6 +106,8 @@
         </div>
     </main>
 </div>
+<script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 
 </html>

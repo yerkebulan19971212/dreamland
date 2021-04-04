@@ -16,9 +16,7 @@
     <link href="{{asset('css/font-awesome-4.7.0/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="{{asset('css/owl.carousel.css')}}">
     <link rel="stylesheet" href="{{asset('css/base_style.css')}}">
-    {{--    <link rel="stylesheet" href="{{asset('boot')}}">--}}
-{{--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>--}}
-    <style>
+      <style>
         img:not([src]){
             visibility: visible!important;
         }
@@ -31,17 +29,22 @@
         .lang_next{
             right: 0px;
         }
-    </style>
-
-    <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
         body{
             font-family: 'Roboto', sans-serif;
+        }
+        .freeconsulting{
+            display: block!important;
         }
     </style>
 
 </head>
 <body class="--site-container-small message-banner-visible">
+@if (\Session::has('success'))
+    <script>
+        alert('Ваше сообщение успешно отправлено')
+    </script>
+@endif
 <div id="funneling-root" class="funneling-site main-wrapper">
     <main id="omnidiv-funneling-site">
         <div id="___gatsby">
@@ -62,7 +65,7 @@
                                         <div class="hero-area -gradient-top  hero-transparent" style="background-image:url(https://image.shutterstock.com/shutterstock/photos/518625736/display_1500/stock-photo-pretty-female-girl-tourist-smiling-and-taking-selfie-in-manhattan-new-york-beautiful-young-518625736.jpg)">
                                             <div class="stage">
                                                 <div class="stage__content cefcom-container">
-                                                    <div class="default w-100" style="padding: 40px;border-radius: 12px;">
+                                                    <div class="default w-100" >
                                                         <div class="tag__wrapper"></div>
                                                         <div class="block-text">
                                                             <h1 class="block-text__title">Учись. Путешествуй. Изучай.</h1>
@@ -71,10 +74,10 @@
                                                             </div>
                                                             <div class="row">
                                                                 <div class="col-sm-12 col-md-6 d-flex justify-content-end btn_header_out" style="padding: 5px;">
-                                                                    <a class="nav-link button-consult  btn_header" href="#">БЕСПЛАТНАЯ КОНСУЛЬТАЦИЯ</a>
+                                                                    <a id="freeconsulting" type="button" class="nav-link button-consult  btn_header" href="#">БЕСПЛАТНАЯ КОНСУЛЬТАЦИЯ</a>
                                                                 </div>
                                                                 <div class="col-sm-12 col-md-6 d-flex  btn_header_out" style="padding: 5px;">
-                                                                    <a class="nav-link button-consult btn_header" href="#" style=" background-color: #212529">СПИСОК СТРАН</a>
+                                                                    <a id="listofcountrybutton" class="nav-link button-consult btn_header" href="#" style=" background-color: #212529">СПИСОК СТРАН</a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -122,174 +125,6 @@
                                                 <h2 class="ef-section-title">Наши страны</h2>
                                                 <div class="cefcom-row age-categories -x-around">
                                                     @include('layout.countries')
-{{--                                                    <a href="{{ route('bachelors') }}" class="cefcom-col age-group-card__wrapper -s-12 -m-6 -l-4">--}}
-{{--                                                        <div class="age-group-card">--}}
-{{--                                                            <div class="funneling-subtile-section">--}}
-{{--                                                                <div class="btns-action"><span class=" icon-more"></span></div>--}}
-{{--                                                                <div class="ef-card--teaser ">--}}
-{{--                                                                    <div>--}}
-{{--                                                                        <picture><img src="{{asset('img/usa.jpg')}}" alt="Языковой год за рубежом" srcset="" class="ef-responsive-image ef-card--teaser__img test"></picture>--}}
-{{--                                                                    </div>--}}
-{{--                                                                    <div class="ef-card--teaser__inner">--}}
-{{--                                                                        <div class="ef-card--teaser__content">--}}
-{{--                                                                            <h2 class="ef-card--teaser__title">США</h2></div>--}}
-{{--                                                                    </div>--}}
-{{--                                                                    <div class="funneling-subtile__hover">--}}
-{{--                                                                        <div class="funneling-subtile__hover-item">--}}
-{{--                                                                            <div class="block--rich-text ">--}}
-{{--                                                                                <div class="rich-text__content">Совместите изучение языка и академических предметов. Подготовьтесь к языковым экзаменам и получите международный опыт.--}}
-{{--                                                                                </div>--}}
-{{--                                                                            </div>--}}
-{{--                                                                            <div class="funneling-subtile__btns"><a href="https://www.ef.kz/aya/" class="ef-button -secondary -filled -square" target="_self" rel="" data-clicklabel="page:page:/aya/">EF Языковой год за рубежом</a></div>--}}
-{{--                                                                        </div>--}}
-{{--                                                                    </div>--}}
-{{--                                                                </div>--}}
-{{--                                                            </div>--}}
-{{--                                                        </div>--}}
-{{--                                                    </a>--}}
-{{--                                                    <div class="cefcom-col age-group-card__wrapper -s-12 -m-6 -l-4">--}}
-{{--                                                        <div class="age-group-card">--}}
-{{--                                                            <div class="funneling-subtile-section">--}}
-{{--                                                                <div class="btns-action"><span class=" icon-more"></span></div>--}}
-{{--                                                                <div class="ef-card--teaser ">--}}
-{{--                                                                    <div>--}}
-{{--                                                                        <picture>--}}
-{{--                                                                            <!--                                                                            <source srcset="https://a.storyblok.com/f/61891/654x408/113611d7f6/sub-tile-ia_00_m.png, https://a.storyblok.com/f/61891/654x408/113611d7f6/sub-tile-ia_00_m.png 1x" media="(max-width: 768px)">-->--}}
-{{--                                                                            <!--                                                                            <source srcset="https://a.storyblok.com/f/61891/606x408/ef4c4f71f0/sub-tile-ia_00.png, https://a.storyblok.com/f/61891/606x408/ef4c4f71f0/sub-tile-ia_00.png 1x"><img alt="Международные &lt;span class=&quot;g-line-break&quot;&gt;&lt;/span&gt;школьные дипломы" srcset="https://a.storyblok.com/f/61891/606x408/ef4c4f71f0/sub-tile-ia_00.png 1024w, https://a.storyblok.com/f/61891/654x408/113611d7f6/sub-tile-ia_00_m.png 640w, https://a.storyblok.com/f/61891/654x408/113611d7f6/sub-tile-ia_00_m.png 320w" class="ef-responsive-image ef-card&#45;&#45;teaser__img test"></picture>-->--}}
-{{--                                                                            <img src="{{asset('img/kip.png')}}" alt="">--}}
-{{--                                                                        </picture>--}}
-{{--                                                                    </div>--}}
-{{--                                                                    <div class="ef-card--teaser__inner">--}}
-{{--                                                                        <div class="ef-card--teaser__content">--}}
-{{--                                                                            <h2 class="ef-card--teaser__title">Кипр</h2></div>--}}
-{{--                                                                    </div>--}}
-{{--                                                                    <div class="funneling-subtile__hover">--}}
-{{--                                                                        <div class="funneling-subtile__hover-item">--}}
-{{--                                                                            <div class="block--rich-text ">--}}
-{{--                                                                                <div class="rich-text__content">Получи свой диплом IB или A-Level от EF Academy - Международные школы-пансионы – и открой себе дорогу в топовые университеты мира. </div>--}}
-{{--                                                                            </div>--}}
-{{--                                                                            <div class="funneling-subtile__btns"><a href="https://www.efacademy.com/ru/" class="ef-button -secondary -filled -square" target="_blank" rel="noopener" data-clicklabel="page:page:https://www.efacademy.com/ru/">EF Academy<span class="ef-icon -new-window"></span></a></div>--}}
-{{--                                                                        </div>--}}
-{{--                                                                    </div>--}}
-{{--                                                                </div>--}}
-{{--                                                            </div>--}}
-{{--                                                        </div>--}}
-{{--                                                    </div>--}}
-{{--                                                    <div class="cefcom-col age-group-card__wrapper -s-12 -m-6 -l-4">--}}
-{{--                                                        <div class="age-group-card">--}}
-{{--                                                            <div class="funneling-subtile-section">--}}
-{{--                                                                <div class="btns-action"><span class=" icon-more"></span></div>--}}
-{{--                                                                <div class="ef-card--teaser ">--}}
-{{--                                                                    <div>--}}
-{{--                                                                        <picture>--}}
-{{--                                                                            <!--                                                                            <source srcset="https://a.storyblok.com/f/61891/654x408/a4c7dc092d/sub-tile-university-abroad_00_m.png, https://a.storyblok.com/f/61891/654x408/a4c7dc092d/sub-tile-university-abroad_00_m.png 1x" media="(max-width: 768px)">-->--}}
-{{--                                                                            <!--                                                                            <source srcset="https://a.storyblok.com/f/61891/608x408/7c2e3707b8/sub-tile-university-abroad_00.png, https://a.storyblok.com/f/61891/608x408/7c2e3707b8/sub-tile-university-abroad_00.png 1x"><img alt="Вузы за рубежом" srcset="https://a.storyblok.com/f/61891/608x408/7c2e3707b8/sub-tile-university-abroad_00.png 1024w, https://a.storyblok.com/f/61891/654x408/a4c7dc092d/sub-tile-university-abroad_00_m.png 640w, https://a.storyblok.com/f/61891/654x408/a4c7dc092d/sub-tile-university-abroad_00_m.png 320w" class="ef-responsive-image ef-card&#45;&#45;teaser__img test">-->--}}
-{{--                                                                            <img src="{{asset('img/Spain.jpg')}}" alt="">--}}
-{{--                                                                        </picture>--}}
-{{--                                                                    </div>--}}
-{{--                                                                    <div class="ef-card--teaser__inner">--}}
-{{--                                                                        <div class="ef-card--teaser__content">--}}
-{{--                                                                            <h2 class="ef-card--teaser__title">Испания</h2></div>--}}
-{{--                                                                    </div>--}}
-{{--                                                                    <div class="funneling-subtile__hover">--}}
-{{--                                                                        <div class="funneling-subtile__hover-item">--}}
-{{--                                                                            <div class="block--rich-text ">--}}
-{{--                                                                                <div class="rich-text__content">Воплоти свою мечту обучения за рубежом в реальность с нашими программами предуниверситетской подготовки, бакалавриата, магистратуры и MBA</div>--}}
-{{--                                                                            </div>--}}
-{{--                                                                            <div class="funneling-subtile__btns"><a href="https://www.ef.kz/pg/university-abroad/?noshow=LY,ILS,ILP&amp;code=ALL" class="ef-button -secondary -filled -square" target="_self" rel="" data-clicklabel="page:page:/pg/university-abroad/?noshow=LY,ILS,ILP&amp;code=ALL">Все программы</a></div>--}}
-{{--                                                                        </div>--}}
-{{--                                                                    </div>--}}
-{{--                                                                </div>--}}
-{{--                                                            </div>--}}
-{{--                                                        </div>--}}
-{{--                                                    </div>--}}
-{{--                                                    <div class="cefcom-col age-group-card__wrapper -s-12 -m-6 -l-4">--}}
-{{--                                                        <div class="age-group-card">--}}
-{{--                                                            <div class="funneling-subtile-section">--}}
-{{--                                                                <div class="btns-action"><span class=" icon-more"></span></div>--}}
-{{--                                                                <div class="ef-card--teaser ">--}}
-{{--                                                                    <div>--}}
-{{--                                                                        <picture>--}}
-{{--                                                                            <source srcset="https://a.storyblok.com/f/61891/654x408/fe2b257597/sub-tile-online_00_m.jpg, https://a.storyblok.com/f/61891/654x408/fe2b257597/sub-tile-online_00_m.jpg 1x" media="(max-width: 768px)">--}}
-{{--                                                                            <source srcset="https://a.storyblok.com/f/61891/608x408/fcef4cf260/sub-tile-online_00.jpg, https://a.storyblok.com/f/61891/608x408/fcef4cf260/sub-tile-online_00.jpg 1x"><img alt="Изучение языка онлайн" srcset="https://a.storyblok.com/f/61891/608x408/fcef4cf260/sub-tile-online_00.jpg 1024w, https://a.storyblok.com/f/61891/654x408/fe2b257597/sub-tile-online_00_m.jpg 640w, https://a.storyblok.com/f/61891/654x408/fe2b257597/sub-tile-online_00_m.jpg 320w" class="ef-responsive-image ef-card--teaser__img test">--}}
-{{--                                                                            <img src="{{asset('img/cheh.jpg')}}" alt="">--}}
-{{--                                                                        </picture>--}}
-{{--                                                                    </div>--}}
-{{--                                                                    <div class="ef-card--teaser__inner">--}}
-{{--                                                                        <div class="ef-card--teaser__content">--}}
-{{--                                                                            <h2 class="ef-card--teaser__title">Чехия</h2></div>--}}
-{{--                                                                    </div>--}}
-{{--                                                                    <div class="funneling-subtile__hover">--}}
-{{--                                                                        <div class="funneling-subtile__hover-item">--}}
-{{--                                                                            <div class="block--rich-text ">--}}
-{{--                                                                                <div class="rich-text__content"> Получай уроки английского языка от профессиональных учителей со всего мира, в любое время в самой большой онлайн школе в мире EF English Live. </div>--}}
-{{--                                                                            </div>--}}
-{{--                                                                            <div class="funneling-subtile__btns"><a href="https://englishlive.ef.com/ru-ru/" class="ef-button -secondary -filled -square" target="_blank" rel="noopener" data-clicklabel="page:page:https://englishlive.ef.com/ru-ru/">EF English Live<span class="ef-icon -new-window"></span></a></div>--}}
-{{--                                                                        </div>--}}
-{{--                                                                    </div>--}}
-{{--                                                                </div>--}}
-{{--                                                            </div>--}}
-{{--                                                        </div>--}}
-{{--                                                    </div>--}}
-{{--                                                    <div class="cefcom-col age-group-card__wrapper -s-12 -m-6 -l-4">--}}
-{{--                                                        <div class="age-group-card">--}}
-{{--                                                            <div class="funneling-subtile-section">--}}
-{{--                                                                <div class="btns-action"><span class=" icon-more"></span></div>--}}
-{{--                                                                <div class="ef-card--teaser ">--}}
-{{--                                                                    <div>--}}
-{{--                                                                        <picture>--}}
-{{--                                                                            <!--                                                                            <source srcset="https://a.storyblok.com/f/61891/654x408/cc4e437ab7/sub-tile-corporate_00_m.jpg, https://a.storyblok.com/f/61891/654x408/cc4e437ab7/sub-tile-corporate_00_m.jpg 1x" media="(max-width: 768px)">-->--}}
-{{--                                                                            <!--                                                                            <source srcset="https://a.storyblok.com/f/61891/608x408/e2e7ec9349/sub-tile-corporate_00.jpg, https://a.storyblok.com/f/61891/608x408/e2e7ec9349/sub-tile-corporate_00.jpg 1x"><img alt="Обучение языкам для бизнеса и госорганизаций" srcset="https://a.storyblok.com/f/61891/608x408/e2e7ec9349/sub-tile-corporate_00.jpg 1024w, https://a.storyblok.com/f/61891/654x408/cc4e437ab7/sub-tile-corporate_00_m.jpg 640w, https://a.storyblok.com/f/61891/654x408/cc4e437ab7/sub-tile-corporate_00_m.jpg 320w" class="ef-responsive-image ef-card&#45;&#45;teaser__img test">-->--}}
-{{--                                                                            <img src="{{asset('img/china.jpg')}}" alt="">--}}
-{{--                                                                        </picture>--}}
-{{--                                                                    </div>--}}
-{{--                                                                    <div class="ef-card--teaser__inner">--}}
-{{--                                                                        <div class="ef-card--teaser__content">--}}
-{{--                                                                            <h2 class="ef-card--teaser__title">Китай</h2></div>--}}
-{{--                                                                    </div>--}}
-{{--                                                                    <div class="funneling-subtile__hover">--}}
-{{--                                                                        <div class="funneling-subtile__hover-item">--}}
-{{--                                                                            <div class="block--rich-text ">--}}
-{{--                                                                                <div class="rich-text__content">Ориентированные курсы для компаний и государств с гарантированными результатами.</div>--}}
-{{--                                                                            </div>--}}
-{{--                                                                            <div class="funneling-subtile__btns"><a href="https://www.ef.kz/corporate/" class="ef-button -secondary -filled -square" target="_self" rel="" data-clicklabel="page:page:/corporate/">EF Обучение языкам</a></div>--}}
-{{--                                                                        </div>--}}
-{{--                                                                    </div>--}}
-{{--                                                                </div>--}}
-{{--                                                            </div>--}}
-{{--                                                        </div>--}}
-{{--                                                    </div>--}}
-{{--                                                    <a href="http://127.0.0.1:8000/" class="-s-12 -m-6 -l-4">--}}
-{{--                                                    <div class="cefcom-col age-group-card__wrapper ">--}}
-{{--                                                        <div class="age-group-card">--}}
-{{--                                                            <div class="funneling-subtile-section">--}}
-{{--                                                                <div class="btns-action"><span class=" icon-more"></span></div>--}}
-{{--                                                                <div class="ef-card--teaser ">--}}
-{{--                                                                    <div>--}}
-{{--                                                                        <picture>--}}
-{{--                                                                            <!--                                                                            <source srcset="https://a.storyblok.com/f/61891/654x408/cc4e437ab7/sub-tile-corporate_00_m.jpg, https://a.storyblok.com/f/61891/654x408/cc4e437ab7/sub-tile-corporate_00_m.jpg 1x" media="(max-width: 768px)">-->--}}
-{{--                                                                            <!--                                                                            <source srcset="https://a.storyblok.com/f/61891/608x408/e2e7ec9349/sub-tile-corporate_00.jpg, https://a.storyblok.com/f/61891/608x408/e2e7ec9349/sub-tile-corporate_00.jpg 1x">-->--}}
-{{--                                                                            <!--                                                                            <img alt="Обучение языкам для бизнеса и госорганизаций" srcset="" class="ef-responsive-image ef-card&#45;&#45;teaser__img test">-->--}}
-{{--                                                                            <img src="{{asset('img/canada.jpg')}}" alt="">--}}
-{{--                                                                        </picture>--}}
-{{--                                                                    </div>--}}
-{{--                                                                    <div class="ef-card--teaser__inner">--}}
-{{--                                                                        <div class="ef-card--teaser__content">--}}
-{{--                                                                            <h2 class="ef-card--teaser__title">Канада</h2></div>--}}
-{{--                                                                    </div>--}}
-{{--                                                                    <div class="funneling-subtile__hover">--}}
-{{--                                                                        <div class="funneling-subtile__hover-item">--}}
-{{--                                                                            <div class="block--rich-text ">--}}
-{{--                                                                                <div class="rich-text__content">Ориентированные курсы для компаний и государств с гарантированными результатами.</div>--}}
-{{--                                                                            </div>--}}
-{{--                                                                            <div class="funneling-subtile__btns"><a href="https://www.ef.kz/corporate/" class="ef-button -secondary -filled -square" target="_self" rel="" data-clicklabel="page:page:/corporate/">EF Обучение языкам</a></div>--}}
-{{--                                                                        </div>--}}
-{{--                                                                    </div>--}}
-{{--                                                                </div>--}}
-{{--                                                            </div>--}}
-{{--                                                        </div>--}}
-{{--                                                    </div>--}}
-{{--                                                    </a>--}}
                                                 </div>
                                             </div>
                                         </section>
@@ -297,36 +132,7 @@
                                 </div>
                             </div>
                         </main>
-                        <div style="display:none">
-                            <section id="omnidiv-program-cards" class="ef-section rendering__program-cards">
-                                <div class="program-cards-top">
-                                    <div class="cefcom-container ">
-                                        <div class="cefcom-row ">
-                                            <div class="cefcom-col -sm-12 -m-12"><span class="link-back">Назад</span></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cefcom-container ">
-                                    <div class="cefcom-row program-cards__header-row">
-                                        <div class="cefcom-col -sm-12 -m-12 program-cards__header-col">
-                                            <div class="program-cards__header">
-                                                <p class="program-cards__header-label"></p>
-                                                <h2 class="program-cards__header-title"></h2></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="section-wrapper">
-                                    <div class="cefcom-container ">
-                                        <div class="cefcom-row ">
-                                            <div class="cefcom-col  program-card-wrapper -s-12 -m-12 card-no-border -l-12">
-                                                <div class="not-sure-card ">
-                                                    <div class="not-sure-card__item">
-                                                        <h2 class="not-sure-card__title">Заказать бесплатную каталог</h2><a href="https://www.ef.kz/cp/brochure/" data-code="ALL" data-tracking="ALL" filter-name="age:mask:clear" class="not-sure-card__btn"><span>Бесплатный каталог</span></a></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
                             </section>
                         </div>
                         <div style="display:none">
@@ -563,79 +369,42 @@
                                 <!-- Language Slider -->
 
                                 <div class="owl-carousel owl-theme language_slider">
-
-                                    <!-- Flag -->
                                     <div class="owl-item language_item">
                                         <a href="#">
                                             <div class="flag"><img src="{{asset('img/icon/ARIZONA.png')}}" alt=""></div>
-{{--                                            <div class="lang_name">Ukrainian</div>--}}
                                         </a>
                                     </div>
-
-                                    <!-- Flag -->
                                     <div class="owl-item language_item">
                                         <a href="#">
                                             <div class="flag"><img src="{{asset('img/icon/ascvut.png')}}" alt=""></div>
-{{--                                            <div class="lang_name">Japanese</div>--}}
                                         </a>
                                     </div>
-
-                                    <!-- Flag -->
                                     <div class="owl-item language_item">
                                         <a href="#">
                                             <div class="flag"><img src="{{asset('img/icon/cvut.png')}}" alt=""></div>
-{{--                                            <div class="lang_name">Lithuanian</div>--}}
                                         </a>
                                     </div>
-
-                                    <!-- Flag -->
                                     <div class="owl-item language_item">
                                         <a href="#">
                                             <div class="flag"><img src="{{asset('img/icon/czu.jpg')}}" alt=""></div>
-{{--                                            <div class="lang_name">Swedish</div>--}}
                                         </a>
                                     </div>
-                                    <!-- Flag -->
                                     <div class="owl-item language_item">
                                         <a href="#">
                                             <div class="flag"><img src="{{asset('img/icon/hebei.jpg')}}" alt=""></div>
-{{--                                            <div class="lang_name">Ukrainian</div>--}}
                                         </a>
                                     </div>
-
-                                    <!-- Flag -->
                                     <div class="owl-item language_item">
                                         <a href="#">
                                             <div class="flag"><img src="{{asset('img/icon/mup.jpg')}}" alt=""></div>
                                             <div class="lang_name">Japanese</div>
                                         </a>
                                     </div>
-
-                                    <!-- Flag -->
                                     <div class="owl-item language_item">
                                         <a href="#">
                                             <div class="flag"><img src="{{asset('img/icon/vse.png')}}" alt=""></div>
-{{--                                            <div class="lang_name">Japanese</div>--}}
                                         </a>
                                     </div>
-
-{{--                                    <!-- Flag -->--}}
-{{--                                    <div class="owl-item language_item">--}}
-{{--                                        <a href="#">--}}
-{{--                                            <div class="flag"><img src="{{asset('images/Japanese.svg')}}" alt=""></div>--}}
-{{--                                            <div class="lang_name">Japanese</div>--}}
-{{--                                        </a>--}}
-{{--                                    </div>--}}
-
-{{--                                    <!-- Flag -->--}}
-{{--                                    <div class="owl-item language_item">--}}
-{{--                                        <a href="#">--}}
-{{--                                            <div class="flag"><img src="{{asset('images/Japanese.svg')}}" alt=""></div>--}}
-{{--                                            <div class="lang_name">Japanese</div>--}}
-{{--                                        </a>--}}
-{{--                                    </div>--}}
-
-
                                 </div>
 
                                 <div class="lang_nav lang_prev"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
@@ -649,8 +418,6 @@
 
 
             <script src="https://static.tildacdn.com/js/jquery-1.10.2.min.js"></script>
-{{--            <script src="https://static.tildacdn.com/js/tilda-scripts-2.8.min.js"></script>--}}
-{{--            <script src="https://ws.tildacdn.com/project836547/tilda-blocks-2.7.js?t=1616509495"></script>--}}
             <script src="https://static.tildacdn.com/js/lazyload-1.3.min.js" charset="utf-8"></script>
         @include('layout.form')
         @include('layout.footer')
@@ -658,6 +425,23 @@
 </div>
 
     <script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
+    <script>
+        $("#freeconsulting").click(function() {
+            $([document.documentElement, document.body]).animate({
+                scrollTop: $("#rec126338645").offset().top
+            }, 2000);
+        });
+        $("#freeconsulting2").click(function() {
+            $([document.documentElement, document.body]).animate({
+                scrollTop: $("#rec126338645").offset().top
+            }, 2000);
+        });
+        $("#listofcountrybutton").click(function() {
+            $([document.documentElement, document.body]).animate({
+                scrollTop: $("#subtile-categories-wrapper").offset().top
+            }, 2000);
+        });
+    </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="{{asset('js/owl.carousel.js')}}"></script>
     <script src="{{asset('js/custom.js')}}"></script>

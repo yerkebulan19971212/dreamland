@@ -17,7 +17,8 @@ class CreateProgrammsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('image');
-            $table->string('color');
+            $table->string('color')->nullable(true);
+            $table->integer('order');
             $table->text('description')->nullable(true);
             $table->timestamps();
         });

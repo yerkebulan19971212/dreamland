@@ -30,6 +30,11 @@
 </head>
 
 <body class="--site-container-small message-banner-visible">
+@if (\Session::has('success'))
+    <script>
+        alert('Ваше сообщение успешно отправлено')
+    </script>
+@endif
 <div id="funneling-root" class="funneling-site main-wrapper">
     <main id="omnidiv-funneling-site">
         <div id="___gatsby">
@@ -91,17 +96,17 @@
                                         <div class="container ">
                                             <div class="row" style="text-align: left">
                                             <div class="col-12 col-md-6">
-                                                <h2 class="country_name"><strong>USA</strong></h2>
-                                                <a href="" class="btn btn-blue">Оставить заявку</a>
+                                                <h2 class="country_name"><strong>{!! $cp->country->name !!}</strong></h2>
+                                                <a id="freecon" type="button" href="#" class="btn btn-blue">Оставить заявку</a>
                                             </div>
                                             <div class="col-12 col-md-6 ">
                                                 <div class="text-left d-flex program-price">
                                                     <div class="col-lg-5 col-md-4 col-4" >Программа</div>
-                                                    <div class="col-lg-7 col-md-8 col-8">Бакалавриат, Магистратура</div>
+                                                    <div class="col-lg-7 col-md-8 col-8">{!! $cp->program->name !!}</div>
                                                 </div>
                                                 <div class="text-left d-flex program-price">
                                                     <div class="col-lg-5 col-md-7 col-7" style="">Стоимость за год от</div>
-                                                    <div class="col-lg-7 col-md-5 col-5">49448 $</div>
+                                                    <div class="col-lg-7 col-md-5 col-5">{!! $cp->price !!} $</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -113,30 +118,8 @@
                                     <div class="cefcom-container ">
                                         <div class="cefcom-row ">
                                             <div class="row" style="font-size: 23px">
-                                                <div data-tween-from="{&quot;y&quot;: 50}" class="b-wysiwyg b-wysiwyg_width_reduced b-university__wysiwyg col-m-offset-1 col-t-offset-2 col-m-22 col-t-20 is-tweened" style="opacity: 1;">
-                                                    <p style="text-align: right;"><strong>#2 National Universities</strong></p>
-                                                    <p>Harvard University – старейший университет США, основанный в 1636 году и названный в честь священника Джона Гарварда, оставившего университету половину своего имущества и обширную библиотеку. На данный момент в университете обучается 21,000 студентов, причем большинство – это студенты магистратуры и докторантуры.</p>
-                                                    <p>Гарвард может похвастаться огромным кампусом размером более 2000 гектаров, оборудованным по последнему слову техники. Инфраструктура кампуса включает в себя научные лаборатории мирового уровня, спортивные центры, несколько музеев, библиотеки, кафе, клубы. Университетская библиотека – самая крупная академическая библиотека мира с 18 миллионами книг.</p>
-                                                    <p>Гарвардский университет является одним из самых престижных университетов мира, членом элитной Лиги плюща и престижной Ассоциации американских университетов. Ежегодные расходы вуза на исследовательскую деятельность – более $1,1 млрд. – по этому показателю университет занимает 9-е место среди университетов США. Более 50 Нобелевских лауреатов связано с именем университета (преподаватели, выпускники, исследователи).</p>
-                                                    <p>В числе выпускников Harvard University 8 американских президентов, 188 ныне живущих миллиардеров, 48 призеров Пулитцеровской премии, 108 Олимпийских медалистов и 10 лауреатов премии Оскар.</p>
-                                                    <h2>Почему стоит поступить в Harvard University?</h2>
-                                                    <ul>
-                                                        <li>уникальный шанс получить диплом одного из известнейших университетов мира;</li>
-                                                        <li>насыщенная внеклассная жизнь - свыше 400 студенческих организаций (включая творческие и профессиональные сообщества) и 42 спортивных клуба;</li>
-                                                        <li>5-е место мирового рейтинга трудоустраиваемости выпускников (по версии QS - Quacquarelli Symonds).</li>
-                                                    </ul>
-                                                    <p></p>
-                                                    <h2>Сильные направления:</h2>
-                                                    <ul>
-                                                        <li>гуманитарные и социальные дисциплины (психология, философия, политология, история, социология и т.д.)</li>
-                                                        <li>медицина и здравоохранение</li>
-                                                        <li>юриспруденция</li>
-                                                        <li>бизнес и экономика</li>
-                                                        <li>изобразительное искусство</li>
-                                                        <li>инженерия и компьютерная наука</li>
-                                                    </ul>
-
-                                                    <p>А на <a href="https://www.studylab.ru/usa">этой</a>&nbsp;странице вы найдете общую информацию о получении образования в США.</p>
+                                                <div data-tween-from="{&quot;y&quot;: 50}" class="container" style="opacity: 1;">
+                                                {!! $cp->full_description !!}
                                                 </div>
                                             </div>
                                         </div>
@@ -145,7 +128,7 @@
                             </section>
 
                         </div>
-
+                        @include('layout.form')
                         @include('layout.footer')
                     </div>
                 </div>
@@ -153,6 +136,15 @@
         </div>
     </main>
 </div>
+<script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
+<script>
+    $("#freecon").click(function() {
+        $([document.documentElement, document.body]).animate({
+            scrollTop: $("#rec126338645").offset().top
+        }, 2000);
+    });
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 
 </html>

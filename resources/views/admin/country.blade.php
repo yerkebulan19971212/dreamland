@@ -2,45 +2,14 @@
 <head>
     <title> AdminController</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <style>
-        table {
-            font-family: arial, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-        }
 
-        td, th {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-        }
-
-        tr:nth-child(even) {
-            background-color: #dddddd;
-        }
-    </style>
 </head>
 <body>
 <br>
 <br>
-<style>
-    .btn{
-        text-align: left!important;
-    }
-</style>
+
 <div class="row">
-    <div class="col-md-3">
-        <div class="container">
-            <div class="btn-group-vertical" style="width: 100%; ">
-                <a href="/add-courses/" class="btn btn-secondary" >Курсы</a>
-                <a href="/add-programms/" class="btn btn-secondary">Программы</a>
-                <a href="/add-country/" class="btn btn-secondary" >Страны</a>
-                <a href="/add-courses-programm/" class="btn btn-secondary">Программы по странам</a>
-                <a href="/add-courses-cp/" class="btn btn-secondary" >Курсы по странам и программам</a>
-                <a href="/logout/" class="btn btn-secondary" >Logout</a>
-            </div>
-        </div>
-    </div>
+ @include('admin.sidebar')
 <div class="col-md-9">
     <div class="container">
         <h2>Страны</h2>
@@ -48,43 +17,47 @@
         {{csrf_field()}}
 
         <div class="form-group">
-            <label for="exampleInputEmail1">name</label>
+            <label for="exampleInputEmail1">Name</label>
             <input type="text" class="form-control" id="exampleInputEmail1" name="name">
         </div>
         <div class="form-group">
-            <label for="exampleInputPassword1">color</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" name="color">
+            <label for="exampleInputPassword1">Order</label>
+            <input type="number" class="form-control" id="exampleInputPassword1" name="order">
         </div>
         <div class="form-group">
-            <label for="exampleFormControlFile1">Example file input</label>
+            <label for="exampleFormControlFile1">Image</label>
             <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image">
         </div>
-        <div class="form-group">
-            <label for="exampleFormControlTextarea1">Example textarea</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+
+{{--        <div class="form-group">--}}
+{{--            <label for="exampleFormControlTextarea1">Description</label>--}}
+{{--            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description" required></textarea>--}}
+{{--        </div>--}}
+        <button type="submit" class="btn btn-primary">Создать</button>
     </form>
+        <script>
+            new FroalaEditor('textarea#exampleFormControlTextarea1')
+        </script>
 
 <table>
     <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Phone</th>
-        <th>Message</th>
+        <th style="max-width: 30px">Order</th>
+        <th style="max-width: 50px">Country</th>
+        <th style="max-width: 30px">Image</th>
+{{--        <th>Message</th>--}}
         <th>delete</th>
     </tr>
     @foreach($countries as $countries)
         <tr>
-            <td>{{$countries->name}}</td>
-            <td>{{$countries->color}}</td>
-            <td>{{$countries->image}}</td>
-            <td>{{$countries->description}}</td>
+            <td style="max-width: 30px">{!! $countries->order !!}</td>
+            <td style="max-width: 50px">{{$countries->name}}</td>
+            <td style="max-width: 30px"><img style="max-width: 30px" src="{{asset($countries->image)}}" alt=""></td>
+{{--            <td>{!! $countries->description !!}</td>--}}
             <td>
                 <form method="POST" action="{{action('AdminController@deleteCountries')}}">
                     {{csrf_field()}}
                     <input type="hidden" name="id" value="{{$countries->id}}">
-                    <input type="submit">
+                    <input type="submit" value="Удалить">
                 </form>
             </td>
         </tr>

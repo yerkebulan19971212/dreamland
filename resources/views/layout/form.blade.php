@@ -20,20 +20,17 @@
                             <div>
                                 <form id="form126338645" name='form126338645' role="form" action='{{ action('SupportController@sendMessage') }}' method='POST' data-formactiontype="2" data-inputbox=".t-input-group" class="t-form js-form-proccess t-form_inputs-total_5 " data-success-callback="t698_onSuccess">
                                     {{csrf_field()}}
-                                    <input type="hidden" name="formservices[]" value="24bd7ec6ba7cbbd11b3282e0e5ec1415" class="js-formaction-services">
-                                    <input type="hidden" name="formservices[]" value="ca1ba379c2fe197969cb648dc6c986ac" class="js-formaction-services">
-                                    <input type="hidden" name="tildaspec-formname" tabindex="-1" value="Образование за рубежом">
                                     <div class="js-successbox t-form__successbox t-text t-text_md" style="display:none;">Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время</div>
                                     <div class="t-form__inputsbox">
                                         <div class="t-input-group t-input-group_nm" data-input-lid="1495646567135">
                                             <div class="t-input-block">
-                                                <input type="text" autocomplete="name" name="Name" class="t-input js-tilda-rule " value="" placeholder="Ваше имя" data-tilda-req="1" data-tilda-rule="name" style="color:#000000; background-color:#ffffff; border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px;">
+                                                <input type="text" autocomplete="name" name="Name" class="t-input js-tilda-rule " value="" placeholder="Ваше имя" data-tilda-req="1" data-tilda-rule="name" style="color:#000000; background-color:#ffffff; border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px;" required>
                                                 <div class="t-input-error"></div>
                                             </div>
                                         </div>
                                         <div class="t-input-group t-input-group_ph" data-input-lid="1495646545048">
                                             <div class="t-input-block">
-                                                <input type="tel" autocomplete="tel" name="Phone" data-phonemask-init="no" data-phonemask-id="126338645" data-phonemask-lid="1495646545048" data-phonemask-maskcountry="" class="t-input js-phonemask-input js-tilda-rule " value="" placeholder="+1(999)999-9999" data-tilda-req="1" style="color:#000000; background-color:#ffffff; border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px;">
+                                                <input type="tel" autocomplete="tel" name="Phone" data-phonemask-init="no" data-phonemask-id="126338645" data-phonemask-lid="1495646545048" data-phonemask-maskcountry="" class="t-input js-phonemask-input js-tilda-rule " value="" placeholder="+1(999)999-9999" data-tilda-req="1" style="color:#000000; background-color:#ffffff; border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px;" required>
                                                 <script type="text/javascript">
                                                     if (!document.getElementById('t-phonemask-script')) {
                                                         (function(d, w, o) {
@@ -65,7 +62,7 @@
                                         </div>
                                         <div class="t-input-group t-input-group_em" data-input-lid="1495646533382">
                                             <div class="t-input-block">
-                                                <input type="text" autocomplete="email" name="Email" class="t-input js-tilda-rule " value="" placeholder="E-mail" data-tilda-req="1" data-tilda-rule="email" style="color:#000000; background-color:#ffffff; border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px;">
+                                                <input type="text" autocomplete="email" name="Email" class="t-input js-tilda-rule " value="" placeholder="E-mail" data-tilda-req="1" data-tilda-rule="email" style="color:#000000; background-color:#ffffff; border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px;" required>
                                                 <div class="t-input-error"></div>
                                             </div>
                                         </div>

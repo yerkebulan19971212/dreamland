@@ -7,19 +7,35 @@
         <div class="collapse navbar-collapse " id="navbarNav" style="flex-direction: row-reverse">
             <ul class="navbar-nav nav-ul" style="color: #fff">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Главная</a>
+                    <a class="nav-link" href="/">Главная</a>
                 </li>
+
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Программы</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Программы
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        @foreach($programs as $p)
+                        <a class="dropdown-item" href="{{ route('categories', ['id' => $p->id]) }}"> {{$p->name}}</a>
+                        @endforeach
+                    </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Страны</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Страны
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        @foreach($countries as $country)
+                            <a class="dropdown-item" href="{{ route('bachelors', ['id' => $country->id]) }}"> {{$country->name}}</a>
+                        @endforeach
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Контакты</a>
                 </li>
-                <li class="nav-item header-btn-right">
-                    <a class="nav-link button-consult" href="#">БЕСПЛАТНАЯ КОНСУЛЬТАЦИЯ</a>
+                <li class="nav-item header-btn-right ">
+                    <a id="freeconsulting2" type="button" class="nav-link button-consult freeconsulting" href="#">БЕСПЛАТНАЯ КОНСУЛЬТАЦИЯ</a>
                 </li>
             </ul>
         </div>

@@ -33,7 +33,7 @@ class SupportController extends Controller
             'description' => $description,
         ]);
 
-         return redirect()->back();
+         return redirect()->back()->with('success', 'Ваше сообщение успешно отправлено');
     }
 
 }

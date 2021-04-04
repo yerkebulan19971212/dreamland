@@ -33,7 +33,7 @@ Route::get('/categories/{id}', function ($id) {
     return view('categories', compact('course_p', 'name', 'programs', 'countries'));
 })->name('categories');
 
-Route::get('/bachelor/{id}', function ($id) {
+Route::get('/countires/{id}', function ($id) {
     $course_p = Courses_program::where('country_id', '=', $id)->get();
     $name = $course_p->first();
     $programs = Programm::all();
@@ -45,12 +45,12 @@ Route::get('/bachelor/{id}', function ($id) {
 //Route::get('/courses', function () {
 //    return view('courses');
 //});
-Route::get('/courses2/{progid}/{conid}', function ($progid, $conid) {
+Route::get('/courses-detail/{progid}/{conid}', function ($progid, $conid) {
     $programs = Programm::all();
     $countries = Country::all();
     $cp = Courses_program::where('country_id', '=', $conid)->where('program_id', '=', $progid)->get()->first();
     $cpc = Courses_program_country::where('cp', '=', $cp->id)->get();
-    return view('course2', compact('programs', 'countries', 'cpc', 'cp'));
+    return view('course_detail_page', compact('programs', 'countries', 'cpc', 'cp'));
 })->name('courses');
 
 Route::get('/coursesdetail', function () {
@@ -82,16 +82,7 @@ Route::get('admin-dreamland/',  function () {
     return view('admin.admin');
 })->name('admin-page');
 
-Route::post('admin-dreamland/login/',  function (Request $request) {
-    $login = $request->input('login');
-    $pas = $request->input('pass');
-    if ($login == "Sultan" and $pas == '1234'){
-        Session::put('username', $login);
-
-        return redirect()->route('pageAddProgramms');
-    }
-    return redirect()->back()->with('error', 'логин или пароль неправильный');
-})->name('admin');
+Route::post('admin-dreamland/login/','AdminController@login')->name('admin');
 
 Route::post('/add-programmss/','AdminController@addProgramms')->name('addProgramms');
 Route::post('/delete/','AdminController@delete')->name('addProgramms');
