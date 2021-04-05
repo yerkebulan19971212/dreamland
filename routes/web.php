@@ -87,25 +87,20 @@ Route::post('admin-dreamland/login/','AdminController@login')->name('admin');
 Route::post('/add-programmss/','AdminController@addProgramms')->name('addProgramms');
 Route::post('/delete/','AdminController@delete')->name('addProgramms');
 Route::get('add-programms/', 'AdminController@index')->name('pageAddProgramms');
+Route::get('add-programms/{id}', 'AdminController@EditProgram')->name('EditProgram');
+Route::post('add-programms/{id}', 'AdminController@EditProgramPost')->name('EditProgramPost');
 
 Route::get('add-country/', 'AdminController@indexCountries')->name('pageAddCountryPage');
+Route::get('add-country/{id}', 'AdminController@EditCountries')->name('EditCountries');
 Route::post('add-country/', 'AdminController@addCountries')->name('pageAddCountry');
+Route::post('add-country/{id}', 'AdminController@EditCountriesPost')->name('EditCountriesPost');
 Route::post('delete-country/', 'AdminController@deleteCountries')->name('pageDelete');
-
-
-Route::get('add-courses/', 'AdminController@indexCourses')->name('indexCourses');
-Route::post('add-courses/', 'AdminController@addCourses')->name('addCourses');
-Route::post('delete-courses/', 'AdminController@deleteCourses')->name('deleteCourses');
-
 
 Route::get('add-courses-programm/', 'AdminController@indexCoursesProgram')->name('indexCourses');
 Route::post('add-courses-program/', 'AdminController@addCoursesP')->name('addCoursesP');
 Route::post('delete-courses-program/', 'AdminController@deleteCoursesP')->name('deleteCoursesP');
 
 
-Route::get('add-courses-cp/', 'AdminController@indexCP')->name('indexCP');
-Route::post('add-courses-cp/', 'AdminController@addCP')->name('addCP');
-Route::post('delete-cp/', 'AdminController@deleteCP')->name('deleteCP');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

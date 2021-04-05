@@ -90,7 +90,7 @@
                         </style>
                         <div style="display: block;">
                             <section id="omnidiv-program-cards" class="ef-section rendering__program-cards">
-                                <div class="header_img" style="background-image:url({{asset('img/canada.jpg')}});">
+                                <div class="header_img" style=" background-image:url({{asset($cp->country->image)}});">
                                     <div class="w-100" style="height: 100%; position: relative; background-color: #19191970">
                                     <div style="position: absolute;width: 100%;text-align: center;bottom: 20px">
                                         <div class="container ">

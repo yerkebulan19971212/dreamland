@@ -13,21 +13,16 @@ use Illuminate\Http\Request;
 use Session;
 class AdminController extends Controller
 {
-
     public function login (Request $request) {
         $login = $request->input('login');
         $pas = $request->input('pass');
         if ($login == "Sultan" and $pas == '1234'){
             Session::put('username', $login);
-
             return redirect()->route('pageAddProgramms');
         }
         return redirect()->back()->with('error', 'логин или пароль неправильный');
     }
-    public function __construct()
-    {
-        // $this->middleware('auth');
-    }
+    public function __construct(){}
     public static  function  check(){
         if (!Session::has('useasdrname')){
             return redirect()->route('admin-page');
@@ -39,17 +34,47 @@ class AdminController extends Controller
             return redirect()->route('admin-page');
         }
         $programs = Programm::all();
-        return view('admin.programms', compact('programs'));
+        $p = null;
+        return view('admin.programms', compact('programs', 'p'));
     }
-
-
-
+    public function EditProgram($id)
+    {
+        $p = Programm::find($id);
+        $programs = Programm::all();
+        return view('admin.programms', compact('programs', 'p'));
+    }
+    public function EditProgramPost(Request $request, $id)
+    {
+        $p = Programm::find($id);
+        $name = $request->input('name');
+        $color = ' ';
+        $description = $request->input('description');
+        $order = $request->input('order');
+        if ($files = $request->file('image')) {
+            $destinationPath = public_path('/images/'); // upload path
+            $profileImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
+            $image = 'images/'.$profileImage ;
+            $files->move($destinationPath, $profileImage);}
+    else{
+            $image = $p->image;
+        }
+        DB::table('programms')
+            ->where('id', 1)
+            ->update([
+                'name' => $name,
+                'image' => $image,
+                'description' => $description,
+                'color' => $color,
+                'order' => $order,
+            ]);
+        return redirect()->route('pageAddProgramms');
+    }
 
     public function addProgramms(Request $request){
 
         $name = $request->input('name');
         $color = ' ';
-        $description = " ";
+        $description = $request->input('description');
         $order = $request->input('order');
 
         if ($files = $request->file('image')) {
@@ -70,8 +95,8 @@ class AdminController extends Controller
         $p = Programm::find($id);
         $p->delete();
         return redirect()->back();
-
     }
+
 
     public function indexCountries()
     {
@@ -79,13 +104,46 @@ class AdminController extends Controller
             return redirect()->route('admin-page');
         }
         $countries = Country::orderBy('order', 'asc')->get();
-        return view('admin.country', compact('countries'));
+        $c = null;
+        return view('admin.country', compact('countries', 'c'));
+    }
+    public function EditCountries($id)
+    {
+        $c = Country::find($id);
+        $countries = Country::orderBy('order', 'asc')->get();
+        return view('admin.country', compact('countries', 'c'));
     }
 
+    public function EditCountriesPost(Request $request, $id)
+    {
+        $c = Country::find($id);
+        $name = $request->input('name');
+        $color = ' ';
+        $description = $request->input('description');
+        $order = $request->input('order');
+        if ($files = $request->file('image')) {
+            $destinationPath = public_path('/images/'); // upload path
+            $profileImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
+            $image = 'images/'.$profileImage ;
+            $files->move($destinationPath, $profileImage);}
+        else{
+            $image = $c->image;
+        }
+        DB::table('countries')
+            ->where('id', 1)
+            ->update([
+                'name' => $name,
+                'image' => $image,
+                'description' => $description,
+                'color' => $color,
+                'order' => $order,
+            ]);
+        return redirect()->route('pageAddCountryPage');
+    }
     public function addCountries(Request $request){
         $name = $request->input('name');
         $color = ' ';
-        $description = ' ';
+        $description = $request->input('description');
         $order = $request->input('order');
         if ($files = $request->file('image')) {
             $destinationPath = public_path('/images/'); // upload path
