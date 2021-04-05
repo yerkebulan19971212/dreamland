@@ -8,13 +8,11 @@
             border-collapse: collapse;
             width: 100%;
         }
-
         td, th {
             border: 1px solid #dddddd;
             text-align: left;
             padding: 8px;
         }
-
         tr:nth-child(even) {
             background-color: #dddddd;
         }
@@ -48,7 +46,13 @@
             <h2>
                 Программы по странам
             </h2>
-            <form method="POST" action="{{action('AdminController@addCoursesP') }}" enctype="multipart/form-data">
+            <form method="POST"
+                  @if($c)
+                  action="{{action('AdminController@addCoursesP') }}"
+                  @else
+                  action="{{action('AdminController@addCoursesP') }}"
+                  @endif
+                  enctype="multipart/form-data">
                 {{csrf_field()}}
 
 

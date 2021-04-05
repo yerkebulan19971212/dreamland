@@ -59,7 +59,7 @@ class AdminController extends Controller
             $image = $p->image;
         }
         DB::table('programms')
-            ->where('id', 1)
+            ->where('id', $id)
             ->update([
                 'name' => $name,
                 'image' => $image,
@@ -130,7 +130,7 @@ class AdminController extends Controller
             $image = $c->image;
         }
         DB::table('countries')
-            ->where('id', 1)
+            ->where('id', $id)
             ->update([
                 'name' => $name,
                 'image' => $image,
@@ -205,6 +205,25 @@ class AdminController extends Controller
         $countries = Country::all();
         $courses_programs = Courses_program::all();
         return view('admin.country_program', compact('programs', 'countries', 'courses_programs', 'c'));
+    }
+    public function EditCPPost(Request $request, $id)
+    {
+        $c = Courses_program::find($id);
+        $country = $request->input('country');
+        $programm = $request->input('programm');
+        $price = $request->input('price');
+        $description = $request->input('description');
+        $fulldescription = $request->input('fulldescription');
+        DB::table('courses_programs')->where('id', $id)
+            ->update([
+            'country_id' => $country,
+            'program_id' => $programm,
+            'description' => $description,
+            'full_description' => $fulldescription,
+            'price' => $price
+        ]);
+        return redirect()->route('indexCourses');
+
     }
     public function deleteCoursesP(Request $request ){
         $id = $request->input('id');
