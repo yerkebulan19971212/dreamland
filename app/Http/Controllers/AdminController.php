@@ -168,40 +168,6 @@ class AdminController extends Controller
     }
 
 
-
-    public function indexCourses(Request $request){
-        if (!Session::has('username')){
-            return redirect()->route('admin-page');
-        }
-        $courses = Courses::all();
-        return view('admin.courses', compact('courses'));
-    }
-
-    public function addCourses(Request $request){
-        $name = $request->input('name');
-        $description = $request->input('description');
-        if ($files = $request->file('image')) {
-            $destinationPath = public_path('/images/'); // upload path
-            $profileImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
-            $files->move($destinationPath, $profileImage);}
-        DB::table('courses')->insert([
-            'name' => $name,
-            'image' => 'images/'.$profileImage,
-            'description' => $description,
-            'price' => 0,
-        ]);
-        return redirect()->back();
-    }
-
-    public function deleteCourses(Request $request ){
-        $id = $request->input('id');
-        $p = Courses::find($id);
-        $p->delete();
-        return redirect()->back();
-
-    }
-
-
     public function indexCoursesProgram(Request $request){
         if (!Session::has('username')){
             return redirect()->route('admin-page');
@@ -232,47 +198,17 @@ class AdminController extends Controller
         }
         return redirect()->back()->with('error', 'Такой запись уже есть');
     }
-
+    public function EditCP($id)
+    {
+        $c = Courses_program::find($id);
+        $programs = Programm::all();
+        $countries = Country::all();
+        $courses_programs = Courses_program::all();
+        return view('admin.country_program', compact('programs', 'countries', 'courses_programs', 'c'));
+    }
     public function deleteCoursesP(Request $request ){
         $id = $request->input('id');
         $p = Courses_program::find($id);
-        $p->delete();
-        return redirect()->back();
-
-    }
-
-
-
-
-
-    public function indexCP(Request $request){
-        if (!Session::has('username')){
-            return redirect()->route('admin-page');
-        }
-        $courses = Courses::all();
-        $cpc = Courses_program_country::all();
-        $courses_programs = Courses_program::all();
-        return view('admin.CP', compact('courses', 'cpc', 'courses_programs'));
-    }
-
-    public function addCP(Request $request){
-        $course = $request->input('course');
-        $course_program = $request->input('course_program');
-        $cpc = Courses_program_country::where('courses_id', '=',$course )->where('cp','=',$course_program)->get();
-        if (count($cpc) == 0){
-        DB::table('courses_program_countries')->insert([
-            'courses_id' => $course,
-            'cp' => $course_program,
-            'description' => null,
-        ]);
-            return redirect()->back();
-        }
-        return redirect()->back()->with('error', 'Такой запись уже есть');
-    }
-
-    public function deleteCP(Request $request ){
-        $id = $request->input('id');
-        $p = Courses_program_country::find($id);
         $p->delete();
         return redirect()->back();
 

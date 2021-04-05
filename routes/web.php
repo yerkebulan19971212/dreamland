@@ -97,6 +97,7 @@ Route::post('add-country/{id}', 'AdminController@EditCountriesPost')->name('Edit
 Route::post('delete-country/', 'AdminController@deleteCountries')->name('pageDelete');
 
 Route::get('add-courses-programm/', 'AdminController@indexCoursesProgram')->name('indexCourses');
+Route::get('add-courses-programm/{id}', 'AdminController@EditCP')->name('EditCP');
 Route::post('add-courses-program/', 'AdminController@addCoursesP')->name('addCoursesP');
 Route::post('delete-courses-program/', 'AdminController@deleteCoursesP')->name('deleteCoursesP');
 
