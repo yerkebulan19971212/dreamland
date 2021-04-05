@@ -8,13 +8,11 @@
             border-collapse: collapse;
             width: 100%;
         }
-
         td, th {
             border: 1px solid #dddddd;
             text-align: left;
             padding: 8px;
         }
-
         tr:nth-child(even) {
             background-color: #dddddd;
         }
@@ -48,36 +46,78 @@
             <h2>
                 Программы по странам
             </h2>
-            <form method="POST" action="{{action('AdminController@addCoursesP') }}" enctype="multipart/form-data">
+            <form method="POST"
+                  @if($c)
+                  action="{{action('AdminController@addCoursesP') }}"
+                  @else
+                  action="{{action('AdminController@addCoursesP') }}"
+                  @endif
+                  enctype="multipart/form-data">
                 {{csrf_field()}}
 
 
                 <div  class="form-group">
-                    <select class="form-control" name="programm">
-                        @foreach($programs as $p)
-                            <option value="{{$p->id}}"> {{$p->name}}</option>
-                        @endforeach
-                    </select>
+                    @if($c)
+                        <select class="form-control" name="country">
+                            @foreach($programs as $p)
+                                <option value="{{$p->id}}"
+                                        @if($c->id == $p->id)
+                                        selected
+                                    @endif
+                                > {{$p->name}}</option>
+                            @endforeach
+                        </select>
+                    @else
+                        <select class="form-control" name="country">
+                            @foreach($programs as $p)
+                                <option value="{{$p->id}}"> {{$p->name}}</option>
+                            @endforeach
+                        </select>
+                    @endif
                 </div>
                 <div  class="form-group">
-                    <select class="form-control" name="country">
-                        @foreach($countries as $p)
-                            <option value="{{$p->id}}"> {{$p->name}}</option>
-                        @endforeach
-                    </select>
+                    @if($c)
+                        <select class="form-control" name="country">
+                            @foreach($countries as $p)
+                                <option value="{{$p->id}}"
+                                        @if($c->id == $p->id)
+                                            selected
+                                        @endif
+                                > {{$p->name}}</option>
+                            @endforeach
+                        </select>
+                    @else
+                        <select class="form-control" name="country">
+                            @foreach($countries as $p)
+                                <option value="{{$p->id}}"> {{$p->name}}</option>
+                            @endforeach
+                        </select>
+                    @endif
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1" >prices from</label>
-                    <input type="number" class="form-control" id="exampleFormControlTextarea1" rows="3" name="price" required></input>
+                    @if($c)
+                    <input type="number" class="form-control" id="exampleFormControlTextarea1" rows="3" name="price" value="{{$c->price}}" required>
+                    @else
+                    <input type="number" class="form-control" id="exampleFormControlTextarea1" rows="3" name="price" required>
+                    @endif
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1" >Description</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description" required></textarea>
+                    @if($c)
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description" required>{!! $c->description !!}</textarea>
+                    @else
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description" required></textarea>
+                    @endif
                 </div>
 
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Full Description</label>
+                    @if($c)
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="fulldescription" required>{!! $c->full_description !!}</textarea>
+                    @else
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="fulldescription" required></textarea>
+                    @endif
                 </div>
                 <button type="submit" class="btn btn-primary">Создать</button>
             </form>

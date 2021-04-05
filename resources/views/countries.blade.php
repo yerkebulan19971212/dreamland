@@ -57,7 +57,16 @@
                                   {{''}}
                                 @endif
                                 <div class="section-wrapper">
+
                                     <div class="cefcom-container ">
+                                        <div class="">
+                                            <blockquote class="blockquote" style="font-family: Roboto">
+                                                @if(!is_null($name))
+                                                    <p class="mb-0" style="font-family: Roboto">{!! $name->country->description !!}</p>
+                                                @endif
+                                            </blockquote>
+
+                                        </div>
                                         <div class="cefcom-row ">
                                             @foreach($course_p as $c)
                                             <div class="cefcom-col program-card-wrapper -s-12 -m-6 -l-12">
@@ -71,6 +80,9 @@
                                                             </div>
                                                         </a>
                                                     </div>
+                                                    <div>
+
+                                                    </div>
                                                     <div class="ef-program-card-horizontal__content">
                                                         <span class="ef-program-card-horizontal__title">
                                                             <h2>{!! $c->program->name !!}</h2>
@@ -81,7 +93,8 @@
                                                                     <span class="ef-icon gh-icon-calendar"></span><span>6+ <span>месяцев</span></span>
                                                                 </div>
                                                             </div>
-                                                        </div><span class="ef-program-card-horizontal__descr" style="display: block">
+                                                        </div>
+                                                        <span class="ef-program-card-horizontal__descr" style="display: block">
                                                             {!! $c->description  !!}
                                                         </span>
                                                         <div class="ef-program-card-horizontal__btns" data-clicksubregion="pg-card-ctas-undefined">

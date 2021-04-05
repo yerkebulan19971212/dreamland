@@ -108,7 +108,7 @@
 {{--                                                                            <span class="cefcom-card--teaser__label">Программы&nbsp;для</span>--}}
                                                                             <h2 class="cefcom-card--teaser__title">
                                                                                 {{$p->name}}</h2>
-                                                                            <span class="cefcom-card--teaser__text">Foundation</span>
+                                                                            <span class="cefcom-card--teaser__text">{!! $p->description !!}</span>
                                                                         </div>
                                                                     </div>
                                                                 </a>
