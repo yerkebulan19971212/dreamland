@@ -280,7 +280,7 @@
               {!! \Session::get('error') !!}
             </div>
         @endif
-        <form method="POST" action="{{action('AdminController@login')}}>
+        <form method="POST" action="{{action('AdminController@login')}}">
             {{csrf_field()}}
             <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
             <input type="text" id="password" class="fadeIn third" name="pass" placeholder="password">
