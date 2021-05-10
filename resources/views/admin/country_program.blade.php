@@ -48,7 +48,7 @@
             </h2>
             <form method="POST"
                   @if($c)
-                  action="{{action('AdminController@addCoursesP') }}"
+                  action="{{action('AdminController@EditCPPost', ['id'=> $c->id]) }}"
                   @else
                   action="{{action('AdminController@addCoursesP') }}"
                   @endif
@@ -58,7 +58,7 @@
 
                 <div  class="form-group">
                     @if($c)
-                        <select class="form-control" name="country">
+                        <select class="form-control" name="programm">
                             @foreach($programs as $p)
                                 <option value="{{$p->id}}"
                                         @if($c->id == $p->id)
@@ -68,7 +68,7 @@
                             @endforeach
                         </select>
                     @else
-                        <select class="form-control" name="country">
+                        <select class="form-control" name="programm">
                             @foreach($programs as $p)
                                 <option value="{{$p->id}}"> {{$p->name}}</option>
                             @endforeach
@@ -112,13 +112,22 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Full Description</label>
+                    <label for="exampleFormControlTextarea1" >Description</label>
                     @if($c)
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="fulldescription" required>{!! $c->full_description !!}</textarea>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="fdescription" required>{!! $c->full_description !!}</textarea>
                     @else
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="fulldescription" required></textarea>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="fdescription" required></textarea>
                     @endif
                 </div>
+
+{{--                <div class="form-group">--}}
+{{--                    <label for="exampleFormControlTextarea1">Full Description</label>--}}
+{{--                    @if($c)--}}
+{{--                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="fulldescription" required>{!! $c->full_description !!}</textarea>--}}
+{{--                    @else--}}
+{{--                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="fulldescription" required></textarea>--}}
+{{--                    @endif--}}
+{{--                </div>--}}
                 <button type="submit" class="btn btn-primary">Создать</button>
             </form>
                 <script>
@@ -131,6 +140,7 @@
                     <th>Program</th>
                     <th>Description</th>
                     <th>Full description</th>
+                    <th>Edit</th>
                     <th>delete</th>
                 </tr>
                 @foreach($courses_programs as $i)
@@ -139,6 +149,7 @@
                         <td>{{$i->program->name}}</td>
                         <td>{!! $i->description !!}</td>
                         <td>{!! $i->full_description !!}</td>
+                        <td><a href="{{route('EditCPPost', ['id' => $i->id])}}" >Edit</a></td>
                         <td>
                             <form method="POST" action="{{action('AdminController@deleteCoursesP')}}">
                                 {{csrf_field()}}

@@ -1,6 +1,6 @@
 <style>
     .wy{
-        background-image: url("https://static.365info.kz/uploads/2019/10/5846674553e5c00e15e982a93744f3c2.jpg");
+        background-image: url({{asset('img/123.jpg')}});
         background-position: top;
         background-size: cover;
     }
@@ -61,7 +61,7 @@
      }
 </style>
 <div id="why" class="wy">
-    <div class="why-choose" style="margin-top: 100px; margin-bottom: 100px;">
+    <div class="why-choose" style="">
         <div class="container">
             <div class="why-choose-ineer">
                 <ul class="our-strength ">

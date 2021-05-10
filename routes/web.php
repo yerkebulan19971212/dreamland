@@ -30,7 +30,8 @@ Route::get('/categories/{id}', function ($id) {
     $name = $course_p->first();
     $programs = Programm::all();
     $countries = Country::all();
-    return view('categories', compact('course_p', 'name', 'programs', 'countries'));
+    $color = ["prog-ly", "prog-loc", "prog-epi", "prog-hsy", "prog-ilc"];	
+    return view('categories', compact('course_p', 'name', 'programs', 'countries', 'color'));
 })->name('categories');
 
 Route::get('/countires/{id}', function ($id) {
@@ -38,7 +39,8 @@ Route::get('/countires/{id}', function ($id) {
     $name = $course_p->first();
     $programs = Programm::all();
     $countries = Country::all();
-    return view('countries', compact('course_p', 'name', 'programs', 'countries'));
+	$color = ["prog-ly", "prog-loc", "prog-epi", "prog-hsy", "prog-ilc"];
+    return view('countries', compact('course_p', 'name', 'programs', 'countries', 'color'));
 })->name('bachelors');
 
 

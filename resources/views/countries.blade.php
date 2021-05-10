@@ -1,30 +1,21 @@
 <!DOCTYPE html>
-<!-- saved from url=(0022)https://www.ef.kz/#UNI -->
 <html class=" mkt-kz   -no-header-shadow-page " data-react-helmet="class">
 
 <head>
-    <link rel="stylesheet" type="text/css" href="{{asset('css/main_styles.css')}}">
     <link rel="stylesheet" href="{{asset('css/base_style.css')}}">
     <link rel="stylesheet" href="{{asset('css/t.min.css')}}">
     <title>Dreamland</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://ws.tildacdn.com/project836547/tilda-blocks-2.12.css?t=1616509495" type="text/css" media="all" />
-    <link data-react-helmet="true" rel="icon" type="image/png" href="https://www.ef.kz/assetscdn/WIBIwq6RdJvcD9bc8RMd/central-media/common/favicon-48.ico">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	    <link data-react-helmet="true" rel="icon" type="image/png" href="{{asset('img/1.jpeg')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
-    <link href="{{asset('css/font-awesome-4.7.0/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="{{asset('css/owl.carousel.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/footer.min.css')}}">
     <style>
         img:not([src]){
             visibility: visible!important;
         }
-        .navbar-light .navbar-toggler{
-            border-color: #fff;
-        }
     </style>
 </head>
-
 <body class="--site-container-small message-banner-visible">
 <div id="funneling-root" class="funneling-site main-wrapper">
     <main id="omnidiv-funneling-site">
@@ -70,9 +61,9 @@
                                         <div class="cefcom-row ">
                                             @foreach($course_p as $c)
                                             <div class="cefcom-col program-card-wrapper -s-12 -m-6 -l-12">
-                                                <div class="ef-program-card-horizontal prog-ly" data-groups="">
+                                                <div class="ef-program-card-horizontal {{$color[$loop->index]}}" data-groups="">
                                                     <div data-clicksubregion="pg-card-image-undefined">
-                                                        <a data-tracking="pg-learn-more-btn-undefined" href="https://www.ef.kz/aya/" class="ef-program-card-horizontal__image" target="_self" rel="">
+                                                        <a data-tracking="pg-learn-more-btn-undefined"  class="ef-program-card-horizontal__image" target="_self" rel="">
                                                             <div>
                                                                 <picture>
                                                                     <img alt="EF Языковой год за рубежом" srcset="{{asset($c->program->image)}}" class="ef-responsive-image ">
@@ -90,7 +81,8 @@
                                                         <div class="ef-program-card-horizontal__diff">
                                                             <div class="ef-program-card-horizontal__diff-item">
                                                                 <div>
-                                                                    <span class="ef-icon gh-icon-calendar"></span><span>6+ <span>месяцев</span></span>
+                                                                                                                                        <span>от </span><span class="ef-icon gh-icon-calendar"></span><span>{{ $c->price }}
+
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -119,8 +111,5 @@
         </div>
     </main>
 </div>
-<script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
-
 </html>

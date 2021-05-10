@@ -16,7 +16,7 @@ class AdminController extends Controller
     public function login (Request $request) {
         $login = $request->input('login');
         $pas = $request->input('pass');
-        if ($login == "Sultan" and $pas == '1234'){
+        if ($login == "Dreamland2021" and $pas == 'Mydreamland1'){
             Session::put('username', $login);
             return redirect()->route('pageAddProgramms');
         }
@@ -63,7 +63,7 @@ class AdminController extends Controller
             ->update([
                 'name' => $name,
                 'image' => $image,
-                'description' => $description,
+                'description' => str_replace('<p data-f-id="pbf" style="text-align: center; font-size: 14px; margin-top: 30px; opacity: 0.65; font-family: sans-serif;">Powered by <a href="https://www.froala.com/wysiwyg-editor?pb=1" title="Froala Editor">Froala Editor</a></p>', "",$description),
                 'color' => $color,
                 'order' => $order,
             ]);
@@ -84,7 +84,7 @@ class AdminController extends Controller
         DB::table('programms')->insert([
             'name' => $name,
             'image' => 'images/'.$profileImage,
-            'description' => $description,
+            'description' => str_replace('<p data-f-id="pbf" style="text-align: center; font-size: 14px; margin-top: 30px; opacity: 0.65; font-family: sans-serif;">Powered by <a href="https://www.froala.com/wysiwyg-editor?pb=1" title="Froala Editor">Froala Editor</a></p>', "",$description),
             'color' => $color,
             'order' => $order,
         ]);
@@ -134,7 +134,7 @@ class AdminController extends Controller
             ->update([
                 'name' => $name,
                 'image' => $image,
-                'description' => $description,
+                'description' => str_replace('<p data-f-id="pbf" style="text-align: center; font-size: 14px; margin-top: 30px; opacity: 0.65; font-family: sans-serif;">Powered by <a href="https://www.froala.com/wysiwyg-editor?pb=1" title="Froala Editor">Froala Editor</a></p>', "",$description),
                 'color' => $color,
                 'order' => $order,
             ]);
@@ -152,7 +152,7 @@ class AdminController extends Controller
         DB::table('countries')->insert([
             'name' => $name,
             'image' => 'images/'.$profileImage,
-            'description' => $description,
+            'description' => str_replace('<p data-f-id="pbf" style="text-align: center; font-size: 14px; margin-top: 30px; opacity: 0.65; font-family: sans-serif;">Powered by <a href="https://www.froala.com/wysiwyg-editor?pb=1" title="Froala Editor">Froala Editor</a></p>', "",$description),
             'color' => $color,
             'order' => $order,
         ]);
@@ -175,7 +175,8 @@ class AdminController extends Controller
         $programs = Programm::all();
         $countries = Country::all();
         $courses_programs = Courses_program::all();
-        return view('admin.country_program', compact('programs', 'countries', 'courses_programs'));
+        $c = null;
+        return view('admin.country_program', compact('programs', 'countries', 'courses_programs', 'c'));
     }
 
     public function addCoursesP(Request $request){
@@ -183,15 +184,15 @@ class AdminController extends Controller
         $programm = $request->input('programm');
         $price = $request->input('price');
         $description = $request->input('description');
-        $fulldescription = $request->input('fulldescription');
+        $fulldescription = $request->input('fdescription');
 
         $cp = Courses_program::where('country_id', '=', $country)->where('program_id', '=', $programm)->get();
         if(count($cp) == 0){
             DB::table('courses_programs')->insert([
                 'country_id' => $country,
                 'program_id' => $programm,
-                'description' => $description,
-                'full_description' => $fulldescription,
+                'description' => str_replace('<p data-f-id="pbf" style="text-align: center; font-size: 14px; margin-top: 30px; opacity: 0.65; font-family: sans-serif;">Powered by <a href="https://www.froala.com/wysiwyg-editor?pb=1" title="Froala Editor">Froala Editor</a></p>', "",$description),
+                'full_description' => str_replace('<p data-f-id="pbf" style="text-align: center; font-size: 14px; margin-top: 30px; opacity: 0.65; font-family: sans-serif;">Powered by <a href="https://www.froala.com/wysiwyg-editor?pb=1" title="Froala Editor">Froala Editor</a></p>', "",$fulldescription),
                 'price' => $price
             ]);
             return redirect()->back();
@@ -208,18 +209,17 @@ class AdminController extends Controller
     }
     public function EditCPPost(Request $request, $id)
     {
-        $c = Courses_program::find($id);
         $country = $request->input('country');
         $programm = $request->input('programm');
         $price = $request->input('price');
         $description = $request->input('description');
-        $fulldescription = $request->input('fulldescription');
+        $fulldescription = $request->input('fdescription');
         DB::table('courses_programs')->where('id', $id)
             ->update([
             'country_id' => $country,
             'program_id' => $programm,
-            'description' => $description,
-            'full_description' => $fulldescription,
+            'description' => str_replace('<p data-f-id="pbf" style="text-align: center; font-size: 14px; margin-top: 30px; opacity: 0.65; font-family: sans-serif;">Powered by <a href="https://www.froala.com/wysiwyg-editor?pb=1" title="Froala Editor">Froala Editor</a></p>', "",$description),
+            'full_description' => str_replace('<p data-f-id="pbf" style="text-align: center; font-size: 14px; margin-top: 30px; opacity: 0.65; font-family: sans-serif;">Powered by <a href="https://www.froala.com/wysiwyg-editor?pb=1" title="Froala Editor">Froala Editor</a></p>', "",$fulldescription),
             'price' => $price
         ]);
         return redirect()->route('indexCourses');

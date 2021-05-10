@@ -155,9 +155,9 @@ $(document).ready(function()
 				responsive:
 				{
 					0:{items:2},
-					480:{items:4},
-					720:{items:6},
-					990:{items:9}
+					480:{items:2},
+					720:{items:4},
+					990:{items:6}
 				}
 			});
 

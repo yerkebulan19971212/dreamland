@@ -42,7 +42,7 @@
                                                             s.type = "text/javascript";
                                                             s.async = true;
                                                             s.id = 't-phonemask-script';
-                                                            s.src = "https://static.tildacdn.com/js/tilda-phone-mask-1.1.min.js";
+                                                            s.src = "https://dreamland.kz/phone.js";
                                                             if (w.opera == "[object Opera]") {
                                                                 d.addEventListener("DOMContentLoaded", f, false);
                                                             } else {
@@ -96,7 +96,7 @@
                                             </div>
                                         </div>
                                         <div class="t-form__submit">
-                                            <button type="submit" class="t-submit" style="color:#ffffff;background-color:#940808;border-radius:20px; -moz-border-radius:20px; -webkit-border-radius:20px;">Отправить заявку</button>
+                                            <button type="submit" class="t-submit" style="color:#ffffff;background-color:#3d5da8;border-radius:20px; -moz-border-radius:20px; -webkit-border-radius:20px;">Отправить заявку</button>
                                         </div>
                                     </div>
                                     <div class="t-form__errorbox-bottom">

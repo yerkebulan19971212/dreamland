@@ -5,11 +5,12 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/main_styles.css')}}">
     <link rel="stylesheet" href="{{asset('css/t.min.css')}}">
     <title>Dreamland</title>
+	    <link data-react-helmet="true" rel="icon" type="image/png" href="{{asset('img/1.jpeg')}}">
+
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="https://ws.tildacdn.com/project836547/tilda-blocks-2.12.css?t=1616509495" type="text/css" media="all" />
-    <link data-react-helmet="true" rel="icon" type="image/png" href="https://www.ef.kz/assetscdn/WIBIwq6RdJvcD9bc8RMd/central-media/common/favicon-48.ico">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
 
@@ -119,16 +120,40 @@
                                             </div>
                                         </section>
                                     </div>
-                                    <div class="" id="subtile-categories-wrapper" style="padding-bottom:50px ">
-                                        <section id="omnidiv-funneling-smalltiles-1" class="ef-section rendering__funneling-sub-tiles">
+									<div id="subtile-categories-wrapper" class="-with-border-top" id="age-categories-wrapper">
+                                        <section id="omnidiv-age-categories" class="ef-section rendering__age-categories">
                                             <div class="cefcom-container ">
-                                                <h2 class="ef-section-title">Наши страны</h2>
+                                                <div class="cefcom-row -x-around">
+                                                    <h2 class="age-categories__title">Наши страны</h2></div>
                                                 <div class="cefcom-row age-categories -x-around">
-                                                    @include('layout.countries')
+                                                    @foreach($countries as $country)
+                                                        <div class="cefcom-col age-group-card__wrapper -s-12 -m-6 -l-4">
+                                                            <div class="age-group-card">
+                                                                <a href="{{ route('bachelors', ['id' => $country->id]) }}" data-code="UNI" data-tracking="age:UNI" filter-name="age:UNI" data-programs="LY,ILS,BC,ETOWN,HULT" class="cefcom-card--teaser "data-clicksubregion="card-group-LY,ILS,BC,ETOWN,HULT" data-clicklabel="page:card-group-LY,ILS,BC,ETOWN,HULT:#UNI">
+                                                                    <div>
+                                                                        <picture>
+                                                                            <!--                                                                        <source srcset="https://a.storyblok.com/f/89778/654x408/da1560e9ad/00_m.jpg, https://a.storyblok.com/f/89778/654x408/da1560e9ad/00_m.jpg 1x" media="(max-width: 768px)">-->
+                                                                            <!--                                                                        <source srcset="https://a.storyblok.com/f/89778/768x516/46fa4d59aa/00.jpg, https://a.storyblok.com/f/89778/768x516/46fa4d59aa/00.jpg 1x">-->
+                                                                            <img alt="Студенты и молодые люди" src="{{asset($country->image)}}" class="ef-responsive-image cefcom-card--teaser__img" width="auto" height="auto">
+                                                                        </picture>
+                                                                    </div>
+                                                                    <div class="cefcom-card--teaser__inner">
+                                                                        <div class="cefcom-card--teaser__content">
+                                                                            {{--                                                                            <span class="cefcom-card--teaser__label">Программы&nbsp;для</span>--}}
+                                                                            <h2 class="cefcom-card--teaser__title">
+                                                                                {{$country->name}}</h2>
+                                                                           
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    @endforeach
                                                 </div>
                                             </div>
                                         </section>
                                     </div>
+
                                 </div>
                             </div>
                         </main>
@@ -370,38 +395,38 @@
 
                                 <div class="owl-carousel owl-theme language_slider">
                                     <div class="owl-item language_item">
-                                        <a href="#">
+                                        <a>
                                             <div class="flag"><img src="{{asset('img/icon/ARIZONA.png')}}" alt=""></div>
                                         </a>
                                     </div>
                                     <div class="owl-item language_item">
-                                        <a href="#">
+                                        <a >
                                             <div class="flag"><img src="{{asset('img/icon/ascvut.png')}}" alt=""></div>
                                         </a>
                                     </div>
                                     <div class="owl-item language_item">
-                                        <a href="#">
+                                        <a>
                                             <div class="flag"><img src="{{asset('img/icon/cvut.png')}}" alt=""></div>
                                         </a>
                                     </div>
                                     <div class="owl-item language_item">
-                                        <a href="#">
+                                        <a>
                                             <div class="flag"><img src="{{asset('img/icon/czu.jpg')}}" alt=""></div>
                                         </a>
                                     </div>
                                     <div class="owl-item language_item">
-                                        <a href="#">
+                                        <a >
                                             <div class="flag"><img src="{{asset('img/icon/hebei.jpg')}}" alt=""></div>
                                         </a>
                                     </div>
                                     <div class="owl-item language_item">
-                                        <a href="#">
+                                        <a >
                                             <div class="flag"><img src="{{asset('img/icon/mup.jpg')}}" alt=""></div>
                                             <div class="lang_name">Japanese</div>
                                         </a>
                                     </div>
                                     <div class="owl-item language_item">
-                                        <a href="#">
+                                        <a >
                                             <div class="flag"><img src="{{asset('img/icon/vse.png')}}" alt=""></div>
                                         </a>
                                     </div>
