@@ -108,6 +108,7 @@
                                                 </div>
                                                 <div class="text-left d-flex program-price">
                                                     <div class="col-lg-5 col-md-7 col-7" style="">Стоимость</div>
+
                                                     <div class="col-lg-7 col-md-5 col-5">{!! $cp->price !!} $</div>
                                                 </div>
                                             </div>
@@ -130,7 +131,7 @@
                             </section>
 
                         </div>
-						
+
 	<script src="https://static.tildacdn.com/js/jquery-1.10.2.min.js"></script>
 						<script src="https://static.tildacdn.com/js/lazyload-1.3.min.js" charset="utf-8"></script>
                         @include('layout.form')
@@ -141,7 +142,7 @@
         </div>
     </main>
 </div>
-<script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>          
+<script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
 <script>
     $("#freecon").click(function() {
         $([document.documentElement, document.body]).animate({
