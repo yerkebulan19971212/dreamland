@@ -1,6 +1,6 @@
 <style>
     .wy{
-        background-image: url("https://static.365info.kz/uploads/2019/10/5846674553e5c00e15e982a93744f3c2.jpg");
+        background-image: url({{asset('img/123.jpg')}});
         background-position: top;
         background-size: cover;
     }
@@ -61,7 +61,7 @@
      }
 </style>
 <div id="why" class="wy">
-    <div class="why-choose" style="margin-top: 100px; margin-bottom: 100px;">
+    <div class="why-choose" style="">
         <div class="container">
             <div class="why-choose-ineer">
                 <ul class="our-strength ">
@@ -91,37 +91,34 @@
         <div class="row">
             <div class="col-lg-4 col-md-6 col-sm-12 workdiv">
                 <img src="{{asset('img/steps/1.svg')}}" class="workimg" alt="">
-                <h3 class="workStep">Шаг 1.</h3>
+               <!-- <h3 class="workStep"> 1.</h3>-->
                 <p class="workp">Бесплатная консультация </p>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12 workdiv">
-                <img src="{{asset('img/steps/2.svg')}}" class="workimg" alt="">
-                <h3 class="workStep">Шаг 2.</h3>
-                <p class="workp">Заключение договора</p>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12 workdiv">
                 <img src="{{asset('img/steps/3.svg')}}" class="workimg" alt="">
-                <h3 class="workStep">Шаг 3.</h3>
+                <!--<h3 class="workStep"> 2.</h3>-->
 
                 <p class="workp">Поступление в университет</p>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12 workdiv">
                 <img src="{{asset('img/steps/4.svg')}}" class="workimg" alt="">
-                <h3 class="workStep">Шаг 4.</h3>
 
-                <p class="workp">Оплата SEVIS</p>
+                <p class="workp">Оплата сборов</p>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12 workdiv">
                 <img src="{{asset('img/steps/5.svg')}}" class="workimg" alt="">
-                <h3 class="workStep">Шаг 5.</h3>
 
                 <p class="workp">Подготовка кейса</p>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12 workdiv">
                 <img src="{{asset('img/steps/6.svg')}}" class="workimg" alt="">
-                <h3 class="workStep">Шаг 6.</h3>
-
+c
                 <p class="workp">Получение визы</p>
+            </div>
+			<div class="col-lg-4 col-md-6 col-sm-12 workdiv">
+                <img src="https://img.icons8.com/ios-filled/452/connectivity-and-help.png" class="workimg" alt="">
+
+                <p class="workp">Поддержка 24/7</p>
             </div>
         </div>
     </div>
@@ -145,7 +142,8 @@
         white-space: pre-wrap;
         font-weight: 800;
         color: #333456;
-        margin-bottom:4.4rem;
+        color: #000000;
+		margin-bottom:4.4rem;
         max-width: 84rem;
     }
     .sub-title{
@@ -198,11 +196,11 @@
     var intervalId3 = null;
     var varCounter = 0;
     var varName = function(){
-        if (sp1 < 5){
+        if (sp1 < 8){
             sp1 = sp1 + 1;
             document.getElementById("sp1").innerHTML = sp1;
         }
-        if(sp1 == 5) {
+        if(sp1 == 8) {
             clearInterval(intervalId);
         }
     };

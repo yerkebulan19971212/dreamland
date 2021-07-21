@@ -5,11 +5,12 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/main_styles.css')}}">
     <link rel="stylesheet" href="{{asset('css/t.min.css')}}">
     <title>Dreamland</title>
+	    <link data-react-helmet="true" rel="icon" type="image/png" href="{{asset('img/1.jpeg')}}">
+
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="https://ws.tildacdn.com/project836547/tilda-blocks-2.12.css?t=1616509495" type="text/css" media="all" />
-    <link data-react-helmet="true" rel="icon" type="image/png" href="https://www.ef.kz/assetscdn/WIBIwq6RdJvcD9bc8RMd/central-media/common/favicon-48.ico">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
 
@@ -62,19 +63,19 @@
                             <div class="funneling-siteroot-template">
                                 <div class="funneling__wrapper three-row-comp-w-section-title">
                                     <section id="omnidiv-stage" class="rendering__stage" style="padding-top: 60px">
-                                        <div class="hero-area -gradient-top  hero-transparent" style="background-image:url(https://image.shutterstock.com/shutterstock/photos/518625736/display_1500/stock-photo-pretty-female-girl-tourist-smiling-and-taking-selfie-in-manhattan-new-york-beautiful-young-518625736.jpg)">
+                                        <div class="hero-area -gradient-top  hero-transparent" style="background-image:url(https://images.pexels.com/photos/374710/pexels-photo-374710.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
                                             <div class="stage">
                                                 <div class="stage__content cefcom-container">
                                                     <div class="default w-100" >
                                                         <div class="tag__wrapper"></div>
                                                         <div class="block-text">
-                                                            <h1 class="block-text__title">Учись. Путешествуй. Изучай.</h1>
+                                                            <h1 class="block-text__title">Поступи на грант без ЕНТ и IELTS!</h1>
                                                             <div>
-                                                                <p> Мы поможем сделать первый шаг к твоей мечте путем качественного и доступного образования за рубежом. </p>
+                                                                <p> Полные гранты в Турцию и Китай. Виза в США на 5 лет. </p>
                                                             </div>
                                                             <div class="row">
                                                                 <div class="col-sm-12 col-md-6 d-flex justify-content-end btn_header_out" style="padding: 5px;">
-                                                                    <a id="freeconsulting" type="button" class="nav-link button-consult  btn_header" href="#">БЕСПЛАТНАЯ КОНСУЛЬТАЦИЯ</a>
+                                                                    <a id="freeconsulting" class="nav-link button-consult  btn_header" href="#" style="backgroud-color:#3d5da8"|>БЕСПЛАТНАЯ КОНСУЛЬТАЦИЯ</a>
                                                                 </div>
                                                                 <div class="col-sm-12 col-md-6 d-flex  btn_header_out" style="padding: 5px;">
                                                                     <a id="listofcountrybutton" class="nav-link button-consult btn_header" href="#" style=" background-color: #212529">СПИСОК СТРАН</a>
@@ -119,16 +120,40 @@
                                             </div>
                                         </section>
                                     </div>
-                                    <div class="" id="subtile-categories-wrapper" style="padding-bottom:50px ">
-                                        <section id="omnidiv-funneling-smalltiles-1" class="ef-section rendering__funneling-sub-tiles">
+									<div id="subtile-categories-wrapper" class="-with-border-top" id="age-categories-wrapper">
+                                        <section id="omnidiv-age-categories" class="ef-section rendering__age-categories">
                                             <div class="cefcom-container ">
-                                                <h2 class="ef-section-title">Наши страны</h2>
+                                                <div class="cefcom-row -x-around">
+                                                    <h2 class="age-categories__title">Наши страны</h2></div>
                                                 <div class="cefcom-row age-categories -x-around">
-                                                    @include('layout.countries')
+                                                    @foreach($countries as $country)
+                                                        <div class="cefcom-col age-group-card__wrapper -s-12 -m-6 -l-4">
+                                                            <div class="age-group-card">
+                                                                <a href="{{ route('bachelors', ['id' => $country->id]) }}" data-code="UNI" data-tracking="age:UNI" filter-name="age:UNI" data-programs="LY,ILS,BC,ETOWN,HULT" class="cefcom-card--teaser "data-clicksubregion="card-group-LY,ILS,BC,ETOWN,HULT" data-clicklabel="page:card-group-LY,ILS,BC,ETOWN,HULT:#UNI">
+                                                                    <div>
+                                                                        <picture>
+                                                                            <!--                                                                        <source srcset="https://a.storyblok.com/f/89778/654x408/da1560e9ad/00_m.jpg, https://a.storyblok.com/f/89778/654x408/da1560e9ad/00_m.jpg 1x" media="(max-width: 768px)">-->
+                                                                            <!--                                                                        <source srcset="https://a.storyblok.com/f/89778/768x516/46fa4d59aa/00.jpg, https://a.storyblok.com/f/89778/768x516/46fa4d59aa/00.jpg 1x">-->
+                                                                            <img alt="Студенты и молодые люди" src="{{asset($country->image)}}" class="ef-responsive-image cefcom-card--teaser__img" width="auto" height="auto">
+                                                                        </picture>
+                                                                    </div>
+                                                                    <div class="cefcom-card--teaser__inner">
+                                                                        <div class="cefcom-card--teaser__content">
+                                                                            {{--                                                                            <span class="cefcom-card--teaser__label">Программы&nbsp;для</span>--}}
+                                                                            <h2 class="cefcom-card--teaser__title">
+                                                                                {{$country->name}}</h2>
+                                                                           
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    @endforeach
                                                 </div>
                                             </div>
                                         </section>
                                     </div>
+
                                 </div>
                             </div>
                         </main>
@@ -370,38 +395,38 @@
 
                                 <div class="owl-carousel owl-theme language_slider">
                                     <div class="owl-item language_item">
-                                        <a href="#">
+                                        <a>
                                             <div class="flag"><img src="{{asset('img/icon/ARIZONA.png')}}" alt=""></div>
                                         </a>
                                     </div>
                                     <div class="owl-item language_item">
-                                        <a href="#">
+                                        <a >
                                             <div class="flag"><img src="{{asset('img/icon/ascvut.png')}}" alt=""></div>
                                         </a>
                                     </div>
                                     <div class="owl-item language_item">
-                                        <a href="#">
+                                        <a>
                                             <div class="flag"><img src="{{asset('img/icon/cvut.png')}}" alt=""></div>
                                         </a>
                                     </div>
                                     <div class="owl-item language_item">
-                                        <a href="#">
+                                        <a>
                                             <div class="flag"><img src="{{asset('img/icon/czu.jpg')}}" alt=""></div>
                                         </a>
                                     </div>
                                     <div class="owl-item language_item">
-                                        <a href="#">
+                                        <a >
                                             <div class="flag"><img src="{{asset('img/icon/hebei.jpg')}}" alt=""></div>
                                         </a>
                                     </div>
                                     <div class="owl-item language_item">
-                                        <a href="#">
+                                        <a >
                                             <div class="flag"><img src="{{asset('img/icon/mup.jpg')}}" alt=""></div>
                                             <div class="lang_name">Japanese</div>
                                         </a>
                                     </div>
                                     <div class="owl-item language_item">
-                                        <a href="#">
+                                        <a >
                                             <div class="flag"><img src="{{asset('img/icon/vse.png')}}" alt=""></div>
                                         </a>
                                     </div>
@@ -423,7 +448,23 @@
         @include('layout.footer')
     </main>
 </div>
-
+<!-- Facebook Pixel Code -->
+<script>
+	!function(f,b,e,v,n,t,s)
+	{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+	n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+	if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+	n.queue=[];t=b.createElement(e);t.async=!0;
+	t.src=v;s=b.getElementsByTagName(e)[0];
+	s.parentNode.insertBefore(t,s)}(window, document,'script',
+	'https://connect.facebook.net/en_US/fbevents.js');
+	fbq('init', '475530590361961');
+	fbq('track', 'PageView');
+</script>
+<noscript>
+	<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=475530590361961&ev=PageView&noscript=1" />
+	</noscript>
+<!-- End Facebook Pixel Code -->
     <script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
     <script>
         $("#freeconsulting").click(function() {

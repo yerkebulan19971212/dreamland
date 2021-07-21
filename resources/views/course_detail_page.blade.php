@@ -11,7 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="https://ws.tildacdn.com/project836547/tilda-blocks-2.12.css?t=1616509495" type="text/css" media="all" />
-    <link data-react-helmet="true" rel="icon" type="image/png" href="https://www.ef.kz/assetscdn/WIBIwq6RdJvcD9bc8RMd/central-media/common/favicon-48.ico">
+        <link data-react-helmet="true" rel="icon" type="image/png" href="{{asset('img/1.jpeg')}}">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     {{--    <link rel="stylesheet" href="{{asset('boot')}}">--}}
     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
@@ -50,11 +51,12 @@
                         </div>
                         <style>
                             .country_name strong{
-                                font-family: Roboto, sans-serif ;
+            font-family: 'Montserrat', sans-serif!important;
                                 font-size: 4rem;
                                 color: #fff;
                             }
                             .btn-blue{
+								            font-family: 'Montserrat', sans-serif!important;
                                 color: #fff;
                                 background-color: #008bd0;
                                 border: 2px solid #008bd0;
@@ -70,7 +72,7 @@
 
                             }
                             .program-price div{
-                                font-family: 'Roboto';
+            					font-family: 'Montserrat', sans-serif!important;
                                 font-size: 20px;
                             }
                             @media only screen and (min-width: 1025px){
@@ -105,7 +107,7 @@
                                                     <div class="col-lg-7 col-md-8 col-8">{!! $cp->program->name !!}</div>
                                                 </div>
                                                 <div class="text-left d-flex program-price">
-                                                    <div class="col-lg-5 col-md-7 col-7" style="">Стоимость за год от</div>
+                                                    <div class="col-lg-5 col-md-7 col-7" style="">Стоимость</div>
                                                     <div class="col-lg-7 col-md-5 col-5">{!! $cp->price !!} $</div>
                                                 </div>
                                             </div>
@@ -128,6 +130,9 @@
                             </section>
 
                         </div>
+						
+	<script src="https://static.tildacdn.com/js/jquery-1.10.2.min.js"></script>
+						<script src="https://static.tildacdn.com/js/lazyload-1.3.min.js" charset="utf-8"></script>
                         @include('layout.form')
                         @include('layout.footer')
                     </div>
@@ -136,7 +141,7 @@
         </div>
     </main>
 </div>
-<script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
+<script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>          
 <script>
     $("#freecon").click(function() {
         $([document.documentElement, document.body]).animate({

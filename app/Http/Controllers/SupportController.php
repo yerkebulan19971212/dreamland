@@ -14,7 +14,7 @@ class SupportController extends Controller
     }
     public function index()
     {
-        $supports = Support::all();
+        $supports = Support::orderBy('created_at', 'desc')->get();
         return view('support', compact('supports'));
     }
 
@@ -32,8 +32,27 @@ class SupportController extends Controller
             'number' => $phone,
             'description' => $description,
         ]);
+		$data = [
+    		'email'=> $email,
+			'phone'=> $phone,
+			'message'=> $description,
+			'name'=> $name,			
+		];
+		
+        $curl = curl_init("https://api.testhub.kz/api/v1/send/");
 
-         return redirect()->back()->with('success', 'Ваше сообщение успешно отправлено');
+    	curl_setopt($curl, CURLOPT_POST, true);
+		    curl_setopt($curl, CURLOPT_HEADER, false);
+
+    	curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($data));
+    	curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    	$response = curl_exec($curl);
+		echo $response;
+    	curl_close($curl);
+
+
+
+         return redirect()->back()->with('success', $response);
     }
 
 }

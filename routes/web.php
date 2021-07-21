@@ -25,12 +25,18 @@ Route::get('/', function () {
     $countries = Country::all();
     return view('index',  compact('programs', 'countries'));
 });
+Route::get('/contact', function () {
+    $programs = Programm::all();
+    $countries = Country::all();
+    return view('contact',  compact('programs', 'countries'));
+})->name('contact');
 Route::get('/categories/{id}', function ($id) {
     $course_p = Courses_program::where('program_id', '=', $id)->get();
     $name = $course_p->first();
     $programs = Programm::all();
     $countries = Country::all();
-    return view('categories', compact('course_p', 'name', 'programs', 'countries'));
+    $color = ["prog-ly", "prog-loc", "prog-epi", "prog-hsy", "prog-ilc"];	
+    return view('categories', compact('course_p', 'name', 'programs', 'countries', 'color'));
 })->name('categories');
 
 Route::get('/countires/{id}', function ($id) {
@@ -38,7 +44,8 @@ Route::get('/countires/{id}', function ($id) {
     $name = $course_p->first();
     $programs = Programm::all();
     $countries = Country::all();
-    return view('countries', compact('course_p', 'name', 'programs', 'countries'));
+	$color = ["prog-ly", "prog-loc", "prog-epi", "prog-hsy", "prog-ilc"];
+    return view('countries', compact('course_p', 'name', 'programs', 'countries', 'color'));
 })->name('bachelors');
 
 
