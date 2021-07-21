@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html class=" mkt-kz   -no-header-shadow-page " data-react-helmet="class">
-
 <head>
     <link rel="stylesheet" href="{{asset('css/base_style.css')}}">
     <link rel="stylesheet" href="{{asset('css/t.min.css')}}">
     <title>Dreamland</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	    <link data-react-helmet="true" rel="icon" type="image/png" href="{{asset('img/1.jpeg')}}">
+    <link data-react-helmet="true" rel="icon" type="image/png" href="{{asset('img/1.jpeg')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/footer.min.css')}}">
     <style>
@@ -56,7 +55,6 @@
                                                     <p class="mb-0" style="font-family: Roboto">{!! $name->country->description !!}</p>
                                                 @endif
                                             </blockquote>
-
                                         </div>
                                         <div class="cefcom-row ">
                                             @foreach($course_p as $c)
@@ -81,8 +79,7 @@
                                                         <div class="ef-program-card-horizontal__diff">
                                                             <div class="ef-program-card-horizontal__diff-item">
                                                                 <div>
-                                                                                                                                        <span>от </span><span class="ef-icon gh-icon-calendar"></span><span>{{ $c->price }}
-
+                                                                    <span>от </span><span class="ef-icon gh-icon-calendar"></span><span>{{ $c->price }}
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -96,9 +93,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                             @endforeach
-
                                         </div>
                                     </div>
                                 </div>
@@ -111,5 +106,7 @@
         </div>
     </main>
 </div>
+<script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>

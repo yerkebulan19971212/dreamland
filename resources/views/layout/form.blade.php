@@ -13,13 +13,11 @@
                                 </div>
                             </div>
                             <div class="t698__descr t-descr t-descr_md" style="" field="descr">
-{{--                                <div style="font-size:20px;" data-customstyle="yes">Мы свяжемся с вами ближайшее время и ответим на все волнующие вас вопросы--}}
-{{--                                    <br />--}}
-{{--                                </div>--}}
                             </div>
                             <div>
                                 <form id="form126338645" name='form126338645' role="form" action='{{ action('SupportController@sendMessage') }}' method='POST' data-formactiontype="2" data-inputbox=".t-input-group" class="t-form js-form-proccess t-form_inputs-total_5 " data-success-callback="t698_onSuccess">
                                     {{csrf_field()}}
+                                    <input type="hidden" name="country" value="{{$hiddenCountry}}">
                                     <div class="js-successbox t-form__successbox t-text t-text_md" style="display:none;">Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время</div>
                                     <div class="t-form__inputsbox">
                                         <div class="t-input-group t-input-group_nm" data-input-lid="1495646567135">
@@ -62,26 +60,26 @@
                                         </div>
                                         <div class="t-input-group t-input-group_em" data-input-lid="1495646533382">
                                             <div class="t-input-block">
-                                                <input type="text" autocomplete="email" name="Email" class="t-input js-tilda-rule " value="" placeholder="E-mail" data-tilda-req="1" data-tilda-rule="email" style="color:#000000; background-color:#ffffff; border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px;" required>
+                                                <input type="number" name="age" class="t-input js-tilda-rule " value="" placeholder="Возраст"  style="color:#000000; background-color:#ffffff; border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px;" required>
                                                 <div class="t-input-error"></div>
                                             </div>
                                         </div>
-                                        <div class="t-input-group t-input-group_tx" data-input-lid="1508592754504">
-                                            <div class="t-input-block">
-                                                <div class="t-text" field="li_text__1508592754504" style="color:#ffffff">
-                                                    <div style="font-size:20px;color:#ffffff;" data-customstyle="yes"> Дополнительный комментарий:
-                                                        <br />
-                                                    </div>
-                                                </div>
-                                                <div class="t-input-error"></div>
-                                            </div>
-                                        </div>
-                                        <div class="t-input-group t-input-group_ta" data-input-lid="1508592700087">
-                                            <div class="t-input-block">
-                                                <textarea name="description" class="t-input js-tilda-rule " style="color:#000000; background-color:#ffffff; border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px;height:102px" rows="3"></textarea>
-                                                <div class="t-input-error"></div>
-                                            </div>
-                                        </div>
+{{--                                        <div class="t-input-group t-input-group_tx" data-input-lid="1508592754504">--}}
+{{--                                            <div class="t-input-block">--}}
+{{--                                                <div class="t-text" field="li_text__1508592754504" style="color:#ffffff">--}}
+{{--                                                    <div style="font-size:20px;color:#ffffff;" data-customstyle="yes"> Дополнительный комментарий:--}}
+{{--                                                        <br />--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="t-input-error"></div>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="t-input-group t-input-group_ta" data-input-lid="1508592700087">--}}
+{{--                                            <div class="t-input-block">--}}
+{{--                                                <textarea name="description" class="t-input js-tilda-rule " style="color:#000000; background-color:#ffffff; border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px;height:102px" rows="3"></textarea>--}}
+{{--                                                <div class="t-input-error"></div>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
                                         <div class="t-form__errorbox-middle">
                                             <div class="js-errorbox-all t-form__errorbox-wrapper" style="display:none;">
                                                 <div class="t-form__errorbox-text t-text t-text_md">

@@ -19,26 +19,27 @@ class SupportController extends Controller
     }
 
     public function sendMessage(Request $request){
+        $country = $request->input('country');
         $name = $request->input('Name');
         $phone = $request->input('Phone');
-        $description = $request->input('description');
-        $email = $request->input('Email');
+//        $description = $request->input('description');
+        $age = $request->input('age');
 
 
 
         DB::table('support')->insert([
-            'email' => $email,
+            'email' => strval($age),
             'name' => $name,
             'number' => $phone,
-            'description' => $description,
+            'description' => $country,
         ]);
 		$data = [
-    		'email'=> $email,
+    		'email'=> $age,
 			'phone'=> $phone,
-			'message'=> $description,
-			'name'=> $name,			
+			'message'=> $country,
+			'name'=> $name,
 		];
-		
+
         $curl = curl_init("https://api.testhub.kz/api/v1/send/");
 
     	curl_setopt($curl, CURLOPT_POST, true);

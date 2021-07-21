@@ -23,7 +23,8 @@ use Illuminate\Http\Request;
 Route::get('/', function () {
     $programs = Programm::all();
     $countries = Country::all();
-    return view('index',  compact('programs', 'countries'));
+    $hiddenCountry = "";
+    return view('index',  compact('hiddenCountry','programs', 'countries'));
 });
 Route::get('/contact', function () {
     $programs = Programm::all();
@@ -35,7 +36,7 @@ Route::get('/categories/{id}', function ($id) {
     $name = $course_p->first();
     $programs = Programm::all();
     $countries = Country::all();
-    $color = ["prog-ly", "prog-loc", "prog-epi", "prog-hsy", "prog-ilc"];	
+    $color = ["prog-ly", "prog-loc", "prog-epi", "prog-hsy", "prog-ilc"];
     return view('categories', compact('course_p', 'name', 'programs', 'countries', 'color'));
 })->name('categories');
 
@@ -55,9 +56,10 @@ Route::get('/countires/{id}', function ($id) {
 Route::get('/courses-detail/{progid}/{conid}', function ($progid, $conid) {
     $programs = Programm::all();
     $countries = Country::all();
+    $hiddenCountry = Country::where('id', '=', $conid)->get()->first()->name;
     $cp = Courses_program::where('country_id', '=', $conid)->where('program_id', '=', $progid)->get()->first();
     $cpc = Courses_program_country::where('cp', '=', $cp->id)->get();
-    return view('course_detail_page', compact('programs', 'countries', 'cpc', 'cp'));
+    return view('course_detail_page', compact('programs', 'countries', 'cpc', 'cp', 'hiddenCountry'));
 })->name('courses');
 
 Route::get('/coursesdetail', function () {

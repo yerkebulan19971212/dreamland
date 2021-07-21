@@ -36,7 +36,7 @@
                     <a class="nav-link" href="{{ route('contact') }}">Контакты</a>
                 </li>
                 <li class="nav-item header-btn-right ">
-                    <a id="freeconsulting2" type="button" class="nav-link button-consult freeconsulting" href="#">БЕСПЛАТНАЯ КОНСУЛЬТАЦИЯ</a>
+                    <a id="" type="button" class="nav-link button-consult " href="tel:+77089030111">+7 708 903 0111</a>
                 </li>
             </ul>
         </div>
