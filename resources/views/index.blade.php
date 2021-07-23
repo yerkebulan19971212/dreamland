@@ -62,7 +62,7 @@
                         <main data-clickregion="page" id="main-content" style="display:block">
                             <div class="funneling-siteroot-template">
                                 <div class="funneling__wrapper three-row-comp-w-section-title">
-                                    <section id="omnidiv-stage" class="rendering__stage" style="padding-top: 60px">
+                                    <section id="omnidiv-stage" class="rendering__stage" style="padding-top: 60px; height: 100vh">
                                         <div class="hero-area -gradient-top  hero-transparent" style="background-image:url(https://images.pexels.com/photos/374710/pexels-photo-374710.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
                                             <div class="stage">
                                                 <div class="stage__content cefcom-container">
@@ -71,7 +71,7 @@
                                                         <div class="block-text">
                                                             <h1 class="block-text__title">Поступи на грант без ЕНТ и IELTS!</h1>
                                                             <div>
-                                                                <p> Полные гранты в Турцию и Китай. Виза в США на 5 лет. </p>
+                                                                <p> Полные гранты с ежемесячной стипендией до  200 тыс тенге в лучшие вузы Турции и Китая. </p>
                                                             </div>
                                                             <div class="row">
                                                                 <div class="col-sm-12 col-md-6 d-flex justify-content-end btn_header_out" style="padding: 5px;">
@@ -87,6 +87,9 @@
                                             </div>
                                         </div>
                                     </section>
+                                    <script src="https://static.tildacdn.com/js/jquery-1.10.2.min.js"></script>
+                                    <script src="https://static.tildacdn.com/js/lazyload-1.3.min.js" charset="utf-8"></script>
+                                    @include('layout.form')
                                     <div class="-with-border-top" id="age-categories-wrapper">
                                         <section id="omnidiv-age-categories" class="ef-section rendering__age-categories">
                                             <div class="cefcom-container ">
@@ -120,6 +123,7 @@
                                             </div>
                                         </section>
                                     </div>
+
 									<div id="subtile-categories-wrapper" class="-with-border-top" id="age-categories-wrapper">
                                         <section id="omnidiv-age-categories" class="ef-section rendering__age-categories">
                                             <div class="cefcom-container ">
@@ -142,7 +146,7 @@
                                                                             {{--                                                                            <span class="cefcom-card--teaser__label">Программы&nbsp;для</span>--}}
                                                                             <h2 class="cefcom-card--teaser__title">
                                                                                 {{$country->name}}</h2>
-                                                                           
+
                                                                         </div>
                                                                     </div>
                                                                 </a>
@@ -442,9 +446,7 @@
             @include('layout.ourwork')
 
 
-            <script src="https://static.tildacdn.com/js/jquery-1.10.2.min.js"></script>
-            <script src="https://static.tildacdn.com/js/lazyload-1.3.min.js" charset="utf-8"></script>
-        @include('layout.form')
+
         @include('layout.footer')
     </main>
 </div>

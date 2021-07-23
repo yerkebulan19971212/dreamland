@@ -23,20 +23,19 @@ class SupportController extends Controller
         $name = $request->input('Name');
         $phone = $request->input('Phone');
 //        $description = $request->input('description');
-        $age = $request->input('age');
+        $country__send = $request->input('country__send');
 
 
 
         DB::table('support')->insert([
-            'email' => strval($age),
+            'email' => $country__send,
             'name' => $name,
             'number' => $phone,
             'description' => $country,
         ]);
 		$data = [
-    		'email'=> $age,
+    		'country'=> $country__send,
 			'phone'=> $phone,
-			'message'=> $country,
 			'name'=> $name,
 		];
 

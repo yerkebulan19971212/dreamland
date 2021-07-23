@@ -60,7 +60,12 @@
                                         </div>
                                         <div class="t-input-group t-input-group_em" data-input-lid="1495646533382">
                                             <div class="t-input-block">
-                                                <input type="number" name="age" class="t-input js-tilda-rule " value="" placeholder="Возраст"  style="color:#000000; background-color:#ffffff; border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px;" required>
+                                                <select name="country__send" class="t-input js-tilda-rule " style="color:#000000; background-color:#ffffff; border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px;" required>
+                                                    <option value="Китай">Китай</option>
+                                                    <option value="Турция">Турция</option>
+                                                    <option value="США">США</option>
+                                                </select>
+{{--                                                <input type="number" name="age" class="t-input js-tilda-rule " value="" placeholder="Возраст"  style="color:#000000; background-color:#ffffff; border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px;" required>--}}
                                                 <div class="t-input-error"></div>
                                             </div>
                                         </div>
